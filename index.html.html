@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia Completo — Redação ENEM</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+
+  :root {
+    --bg: #0f0f13;
+    --bg2: #16161c;
+    --bg3: #1e1e26;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --text: #e8e6f0;
+    --text2: #9b98aa;
+    --text3: #5e5c6e;
+
+    --c1: #7b6cff; --c1b: #1a1830; --c1t: #b8b0ff;
+    --c2: #2dcb8f; --c2b: #0d2318; --c2t: #7de8bf;
+    --c3: #f5a623; --c3b: #241800; --c3t: #ffd07a;
+    --c4: #ff6b6b; --c4b: #2a0f0f; --c4t: #ffb3b3;
+    --c5: #44d9e8; --c5b: #071e22; --c5t: #a4eef5;
+
+    --r: 10px;
+    --r2: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Sora', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── LAYOUT ── */
+  .shell { display: flex; min-height: 100vh; }
+
+  .sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-logo {
+    padding: 24px 20px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-logo .badge {
+    display: inline-block;
+    background: var(--c1b);
+    color: var(--c1t);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--c1);
+    margin-bottom: 8px;
+  }
+  .sidebar-logo h1 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text);
+  }
+  .sidebar-logo p {
+    font-size: 11px;
+    color: var(--text3);
+    margin-top: 4px;
+  }
+
+  .sidebar-nav { padding: 12px 10px; flex: 1; }
+
+  .nav-section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    color: var(--text3);
+    padding: 12px 10px 6px;
+    text-transform: uppercase;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: var(--r);
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text2);
+    transition: all .15s;
+    border: 1px solid transparent;
+    margin-bottom: 2px;
+  }
+  .nav-item:hover { background: var(--bg3); color: var(--text); }
+  .nav-item.active { background: var(--bg3); color: var(--text); border-color: var(--border2); }
+  .nav-item .dot {
+    width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+  }
+  .nav-item .num {
+    width: 20px; height: 20px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 600; flex-shrink: 0;
+  }
+
+  .main { flex: 1; overflow-y: auto; }
+  .content { max-width: 860px; margin: 0 auto; padding: 32px 32px 80px; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .page-header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-header .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    color: var(--text3);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .page-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .page-header p {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--r2);
+    padding: 20px;
+    margin-bottom: 14px;
+  }
+  .card-accent {
+    border-left: 3px solid var(--accent, #7b6cff);
+    border-radius: 0 var(--r2) var(--r2) 0;
+  }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+
+  /* ── TAGS / PILLS ── */
+  .pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 99px;
+    border: 1px solid;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    background: var(--bg3);
+    color: var(--text2);
+    border: 1px solid var(--border);
+    margin: 2px;
+  }
+
+  /* ── LABELS ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    color: var(--text3);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  /* ── COMP TABS ── */
+  .comp-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .comp-tab {
+    padding: 7px 14px;
+    border-radius: var(--r);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    transition: all .15s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .comp-tab:hover { border-color: var(--border2); color: var(--text); }
+  .comp-tab.on { color: var(--text); border-color: var(--ac); }
+
+  /* ── NIVEL BAR ── */
+  .nivel-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .nivel-row:last-child { border-bottom: none; }
+  .nivel-pts {
+    min-width: 38px;
+    font-size: 12px;
+    font-weight: 600;
+    padding-top: 1px;
+  }
+  .nivel-bar {
+    width: 3px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .nivel-desc {
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  /* ── EXAMPLE BLOCK ── */
+  .ex-block {
+    background: var(--bg3);
+    border-radius: var(--r);
+    padding: 12px 14px;
+    margin-bottom: 8px;
+  }
+  .ex-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    margin-bottom: 6px;
+  }
+  .ex-text {
+    font-family: 'Crimson Pro', serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .ex-obs {
+    font-size: 11px;
+    color: var(--text2);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    line-height: 1.5;
+  }
+
+  /* ── PROPOSTA HIGHLIGHTS ── */
+  .hl { border-radius: 3px; padding: 1px 4px; font-weight: 500; }
+  .hl-ag { background: rgba(123,108,255,.2); color: #b8b0ff; }
+  .hl-ac { background: rgba(45,203,143,.2); color: #7de8bf; }
+  .hl-me { background: rgba(245,166,35,.2); color: #ffd07a; }
+  .hl-ef { background: rgba(255,107,107,.2); color: #ffb3b3; }
+  .hl-dt { background: rgba(68,217,232,.2); color: #a4eef5; }
+
+  /* ── CONECTIVOS ── */
+  .con-cat-tabs {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;
+  }
+  .con-cat-tab {
+    padding: 6px 12px;
+    border-radius: var(--r);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    transition: all .15s;
+  }
+  .con-cat-tab:hover { border-color: var(--border2); color: var(--text); }
+  .con-cat-tab.on { color: var(--text); }
+
+  .con-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--bg3);
+    border-radius: var(--r);
+    margin-bottom: 6px;
+  }
+  .con-word {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 120px;
+    text-align: center;
+  }
+  .con-uso {
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.5;
+    padding-top: 3px;
+  }
+
+  /* ── ESTRUTURA ── */
+  .estrutura-step {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .estrutura-step .step-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .step-circle {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600; flex-shrink: 0;
+  }
+  .step-connector {
+    width: 1px; flex: 1; margin: 4px 0;
+    background: var(--border);
+  }
+  .step-body { flex: 1; padding-bottom: 6px; }
+  .step-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .step-desc { font-size: 13px; color: var(--text2); line-height: 1.6; }
+
+  /* ── REDACAO ── */
+  .red-part {
+    border-left: 3px solid var(--ac2);
+    border-radius: 0 var(--r2) var(--r2) 0;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .red-tipo {
+    font-size: 10px; font-weight: 600; letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .red-texto {
+    font-family: 'Crimson Pro', serif;
+    font-size: 15.5px;
+    line-height: 1.85;
+    color: var(--text);
+  }
+  .red-analise {
+    margin-top: 12px;
+    background: var(--bg3);
+    border-radius: var(--r);
+    padding: 10px 12px;
+  }
+  .red-analise .alabel {
+    font-size: 10px; font-weight: 600; letter-spacing: .08em;
+    color: var(--text3); margin-bottom: 4px;
+  }
+  .red-analise p { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+  /* ── REPERTÓRIO ── */
+  .rep-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 12px 14px;
+    margin-bottom: 8px;
+  }
+  .rep-cat {
+    font-size: 10px; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .rep-item {
+    font-size: 12px; color: var(--text2); line-height: 1.6;
+    padding: 4px 0; border-bottom: 1px solid var(--border);
+  }
+  .rep-item:last-child { border-bottom: none; }
+  .rep-item strong { color: var(--text); font-weight: 500; }
+
+  /* ── ERROS ── */
+  .erro-card {
+    display: flex;
+    gap: 12px;
+    background: var(--bg3);
+    border-radius: var(--r);
+    padding: 12px 14px;
+    margin-bottom: 6px;
+    border-left: 3px solid #ff6b6b;
+    border-radius: 0 var(--r) var(--r) 0;
+  }
+  .erro-num {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: rgba(255,107,107,.15); color: #ffb3b3;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600; flex-shrink: 0;
+  }
+  .erro-body .etitle { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .erro-body .edesc { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+  /* ── CRITERIOS ZERO ── */
+  .zero-card {
+    background: rgba(255,107,107,.08);
+    border: 1px solid rgba(255,107,107,.25);
+    border-radius: var(--r2);
+    padding: 16px 18px;
+    margin-bottom: 10px;
+  }
+  .zero-card h4 { font-size: 13px; font-weight: 600; color: #ffb3b3; margin-bottom: 6px; }
+  .zero-card p { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+  /* ── SCROLL BAR ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 3px; }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: var(--r);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--border2);
+    background: var(--bg3);
+    color: var(--text2);
+    transition: all .15s;
+    font-family: 'Sora', sans-serif;
+  }
+  .btn:hover { color: var(--text); border-color: rgba(255,255,255,.25); }
+
+  /* checklist */
+  .check-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    font-size: 13px; color: var(--text2); line-height: 1.5;
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-box {
+    width: 18px; height: 18px; border-radius: 4px;
+    border: 1px solid var(--border2); background: var(--bg3);
+    flex-shrink: 0; cursor: pointer; margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .15s;
+  }
+  .check-box.checked {
+    background: var(--c2b); border-color: var(--c2);
+    color: var(--c2);
+  }
+  .check-item.checked-item .check-text { text-decoration: line-through; color: var(--text3); }
+
+  /* ── REDAÇÃO VIVA ── */
+  .rv-progress { display:flex; gap:6px; align-items:center; margin-bottom:20px; flex-wrap:wrap; }
+  .rv-pip { width:28px; height:4px; border-radius:2px; background:var(--bg3); transition:background .3s; }
+  .rv-pip.done { background:var(--rv-cor, #fd79a8); }
+  .rv-pip.current { background:var(--rv-cor, #fd79a8); opacity:.5; }
+
+  .rv-card {
+    background:var(--bg2);
+    border:1px solid var(--border);
+    border-radius:var(--r2);
+    overflow:hidden;
+    margin-bottom:14px;
+    animation: rv-in .3s ease;
+  }
+  @keyframes rv-in { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+  .rv-header {
+    display:flex; align-items:center; gap:12px;
+    padding:14px 18px;
+    border-bottom:1px solid var(--border);
+  }
+  .rv-num {
+    width:32px; height:32px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700; flex-shrink:0;
+  }
+  .rv-tipo { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
+  .rv-pontos { margin-left:auto; font-size:11px; font-weight:600; }
+
+  .rv-texto-wrap { padding:18px 20px; }
+  .rv-texto {
+    font-family:'Crimson Pro', serif;
+    font-size:16px; line-height:2;
+    color:var(--text);
+  }
+
+  .rv-details {
+    border-top:1px solid var(--border);
+    padding:16px 18px;
+    display:flex; flex-direction:column; gap:10px;
+    animation: rv-in .25s ease;
+  }
+
+  .rv-detail-block {
+    background:var(--bg3);
+    border-radius:var(--r);
+    padding:12px 14px;
+  }
+  .rv-detail-label {
+    font-size:10px; font-weight:700; letter-spacing:.1em;
+    text-transform:uppercase; margin-bottom:6px;
+  }
+  .rv-detail-text {
+    font-size:13px; color:var(--text2); line-height:1.65;
+  }
+  .rv-detail-text strong { color:var(--text); font-weight:500; }
+
+  .rv-chip {
+    display:inline-block; font-size:11px; font-weight:600;
+    padding:3px 10px; border-radius:99px; border:1px solid;
+    margin:2px;
+  }
+
+  .rv-btn-row { display:flex; gap:10px; align-items:center; margin-top:16px; }
+  .rv-btn-next {
+    flex:1; padding:12px 20px;
+    border-radius:var(--r);
+    font-size:13px; font-weight:600;
+    cursor:pointer; border:none;
+    transition:all .15s;
+    font-family:'Sora',sans-serif;
+    letter-spacing:.02em;
+  }
+  .rv-btn-restart {
+    padding:10px 16px;
+    border-radius:var(--r);
+    font-size:12px; font-weight:500;
+    cursor:pointer;
+    border:1px solid var(--border2);
+    background:transparent; color:var(--text2);
+    transition:all .15s;
+    font-family:'Sora',sans-serif;
+  }
+  .rv-btn-restart:hover { color:var(--text); border-color:rgba(255,255,255,.3); }
+  .rv-score-final {
+    display:grid; grid-template-columns:repeat(5,1fr); gap:8px;
+    margin-top:14px;
+  }
+  .rv-score-cell {
+    background:var(--bg3); border-radius:var(--r);
+    padding:10px 8px; text-align:center;
+  }
+  .rv-score-cell .sc-n { font-size:10px; color:var(--text3); margin-bottom:4px; }
+  .rv-score-cell .sc-v { font-size:18px; font-weight:700; }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="badge">ENEM 2026</div>
+    <h1>Guia Completo de Redação</h1>
+    <p>1000 pontos possíveis</p>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Fundamentos</div>
+    <div class="nav-item active" data-sec="visao-geral">
+      <svg class="dot" width="6" height="6" style="fill:#7b6cff"><circle cx="3" cy="3" r="3"/></svg>
+      Visão geral
+    </div>
+    <div class="nav-item" data-sec="estrutura">
+      <svg class="dot" width="6" height="6" style="fill:#7b6cff"><circle cx="3" cy="3" r="3"/></svg>
+      Estrutura do texto
+    </div>
+    <div class="nav-item" data-sec="zeros">
+      <svg class="dot" width="6" height="6" style="fill:#ff6b6b"><circle cx="3" cy="3" r="3"/></svg>
+      Critérios de zeragem
+    </div>
+
+    <div class="nav-section-label">As 5 Competências</div>
+    <div class="nav-item" data-sec="comp">
+      <div class="num" style="background:#1a1830;color:#b8b0ff">1</div>
+      Norma culta
+    </div>
+    <div class="nav-item" data-sec="comp" data-ci="1">
+      <div class="num" style="background:#0d2318;color:#7de8bf">2</div>
+      Compreensão da proposta
+    </div>
+    <div class="nav-item" data-sec="comp" data-ci="2">
+      <div class="num" style="background:#241800;color:#ffd07a">3</div>
+      Organização e argumentação
+    </div>
+    <div class="nav-item" data-sec="comp" data-ci="3">
+      <div class="num" style="background:#1a1830;color:#b8b0ff">4</div>
+      Mecanismos de coesão
+    </div>
+    <div class="nav-item" data-sec="comp" data-ci="4">
+      <div class="num" style="background:#071e22;color:#a4eef5">5</div>
+      Proposta de intervenção
+    </div>
+
+    <div class="nav-section-label">Recursos e Técnicas</div>
+    <div class="nav-item" data-sec="conectivos">
+      <svg class="dot" width="6" height="6" style="fill:#2dcb8f"><circle cx="3" cy="3" r="3"/></svg>
+      Conectivos completos
+    </div>
+    <div class="nav-item" data-sec="repertorio">
+      <svg class="dot" width="6" height="6" style="fill:#f5a623"><circle cx="3" cy="3" r="3"/></svg>
+      Repertório sociocultural
+    </div>
+    <div class="nav-item" data-sec="erros">
+      <svg class="dot" width="6" height="6" style="fill:#ff6b6b"><circle cx="3" cy="3" r="3"/></svg>
+      Erros mais comuns
+    </div>
+    <div class="nav-item" data-sec="redacao">
+      <svg class="dot" width="6" height="6" style="fill:#44d9e8"><circle cx="3" cy="3" r="3"/></svg>
+      Redação modelo
+    </div>
+    <div class="nav-item" data-sec="redacao-viva">
+      <svg class="dot" width="6" height="6" style="fill:#fd79a8"><circle cx="3" cy="3" r="3"/></svg>
+      Redação nota 1000 — ao vivo
+    </div>
+    <div class="nav-item" data-sec="checklist">
+      <svg class="dot" width="6" height="6" style="fill:#2dcb8f"><circle cx="3" cy="3" r="3"/></svg>
+      Checklist de revisão
+    </div>
+  </nav>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+<div class="content">
+
+<!-- ══════ VISÃO GERAL ══════ -->
+<div id="sec-visao-geral" class="section active">
+  <div class="page-header">
+    <div class="label">Fundamentos</div>
+    <h2>Visão geral da redação ENEM</h2>
+    <p>A redação do ENEM vale 1000 pontos e é avaliada por duas bancas de forma independente. O texto deve ser dissertativo-argumentativo, com no mínimo 7 linhas e no máximo 30 linhas escritas à mão (equivalente a ~500 palavras).</p>
+  </div>
+
+  <div class="grid3">
+    <div class="card" style="text-align:center">
+      <div style="font-size:28px;font-weight:700;color:#7b6cff">1000</div>
+      <div style="font-size:11px;color:var(--text2);margin-top:4px">pontos totais</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="font-size:28px;font-weight:700;color:#2dcb8f">5</div>
+      <div style="font-size:11px;color:var(--text2);margin-top:4px">competências avaliadas</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="font-size:28px;font-weight:700;color:#f5a623">200</div>
+      <div style="font-size:11px;color:var(--text2);margin-top:4px">pontos por competência</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="section-label">As 5 competências</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg3);border-radius:var(--r)">
+        <div style="width:28px;height:28px;border-radius:50%;background:#1a1830;color:#b8b0ff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0">1</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:500">Domínio da norma culta da língua portuguesa</div>
+          <div style="font-size:11px;color:var(--text2)">Gramática, ortografia, pontuação, sintaxe</div>
+        </div>
+        <div style="font-size:12px;font-weight:600;color:#b8b0ff">200 pts</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg3);border-radius:var(--r)">
+        <div style="width:28px;height:28px;border-radius:50%;background:#0d2318;color:#7de8bf;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0">2</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:500">Compreensão da proposta e do tipo textual</div>
+          <div style="font-size:11px;color:var(--text2)">Tema, tipo dissertativo, repertório sociocultural</div>
+        </div>
+        <div style="font-size:12px;font-weight:600;color:#7de8bf">200 pts</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg3);border-radius:var(--r)">
+        <div style="width:28px;height:28px;border-radius:50%;background:#241800;color:#ffd07a;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0">3</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:500">Seleção, relação e organização das informações</div>
+          <div style="font-size:11px;color:var(--text2)">Tese clara, argumentos consistentes, progressão</div>
+        </div>
+        <div style="font-size:12px;font-weight:600;color:#ffd07a">200 pts</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg3);border-radius:var(--r)">
+        <div style="width:28px;height:28px;border-radius:50%;background:#1a1830;color:#b8b0ff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0">4</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:500">Mecanismos linguísticos de coesão textual</div>
+          <div style="font-size:11px;color:var(--text2)">Conectivos, pronomes, sinonímia, paralelismo</div>
+        </div>
+        <div style="font-size:12px;font-weight:600;color:#b8b0ff">200 pts</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg3);border-radius:var(--r)">
+        <div style="width:28px;height:28px;border-radius:50%;background:#071e22;color:#a4eef5;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0">5</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:500">Proposta de intervenção completa</div>
+          <div style="font-size:11px;color:var(--text2)">Agente + ação + meio + efeito + detalhamento</div>
+        </div>
+        <div style="font-size:12px;font-weight:600;color:#a4eef5">200 pts</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">O que o ENEM exige do texto</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <div style="background:var(--bg3);border-radius:var(--r);padding:12px">
+        <div style="font-size:12px;font-weight:600;color:#2dcb8f;margin-bottom:6px">Obrigatório</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7">
+          Tipo dissertativo-argumentativo<br>
+          Mínimo de 7 linhas<br>
+          Máximo de 30 linhas (~500 palavras)<br>
+          Em português<br>
+          A caneta preta<br>
+          Legível e sem rasuras excessivas<br>
+          Tese + argumentos + proposta
+        </div>
+      </div>
+      <div style="background:var(--bg3);border-radius:var(--r);padding:12px">
+        <div style="font-size:12px;font-weight:600;color:#ff6b6b;margin-bottom:6px">Proibido / Zera</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7">
+          Texto com menos de 7 linhas<br>
+          Fuga ao tema<br>
+          Texto dissertativo-expositivo<br>
+          Texto narrativo, poético ou outro tipo<br>
+          Cópia dos textos motivadores<br>
+          Identificação fora do local correto<br>
+          Proposta que fere direitos humanos
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ ESTRUTURA ══════ -->
+<div id="sec-estrutura" class="section">
+  <div class="page-header">
+    <div class="label">Fundamentos</div>
+    <h2>Estrutura completa do texto</h2>
+    <p>A redação dissertativo-argumentativa tem estrutura fixa: introdução, dois ou mais parágrafos de desenvolvimento e conclusão. Cada parte tem função específica e técnicas próprias.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="section-label">Estrutura padrão nota 1000</div>
+    <div id="estrutura-steps"></div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="section-label">Introdução — técnicas de abertura</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="background:var(--bg3);border-radius:var(--r);padding:12px">
+        <div style="font-size:12px;font-weight:600;color:#7b6cff;margin-bottom:4px">1. Citação ou repertório</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:6px">Usar fala de filósofo, dado estatístico, lei ou obra para contextualizar.</div>
+        <div class="ex-text" style="font-size:13px;padding:8px;background:var(--bg2);border-radius:6px">"Segundo Émile Durkheim, o fato social exerce pressão sobre o indivíduo antes que ele possa se dar conta. No Brasil contemporâneo, essa força manifesta-se..."</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:var(--r);padding:12px">
+        <div style="font-size:12px;font-weight:600;color:#2dcb8f;margin-bottom:4px">2. Dados e estatísticas</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:6px">Começar com dado concreto que ilustra a dimensão do problema.</div>
+        <div class="ex-text" style="font-size:13px;padding:8px;background:var(--bg2);border-radius:6px">"De acordo com o IBGE (2023), 35 milhões de brasileiros ainda carecem de acesso à água tratada. Tal realidade revela..."</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:var(--r);padding:12px">
+        <div style="font-size:12px;font-weight:600;color:#f5a623;margin-bottom:4px">3. Situação-problema</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:6px">Apresentar diretamente o problema e sua relevância contemporânea.</div>
+        <div class="ex-text" style="font-size:13px;padding:8px;background:var(--bg2);border-radius:6px">"A crescente disseminação de informações falsas nas redes sociais coloca em xeque os pilares da democracia moderna..."</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:var(--r);padding:12px">
+        <div style="font-size:12px;font-weight:600;color:#44d9e8;margin-bottom:4px">4. Contexto histórico</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:6px">Situar o problema em perspectiva histórica, mostrando sua evolução.</div>
+        <div class="ex-text" style="font-size:13px;padding:8px;background:var(--bg2);border-radius:6px">"Desde a Revolução Industrial, o trabalho humano tem sido progressivamente substituído por máquinas. No século XXI, a inteligência artificial..."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="section-label">Desenvolvimento — estrutura interna de cada parágrafo</div>
+    <div style="background:var(--bg3);border-radius:var(--r);padding:14px;margin-bottom:10px">
+      <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:10px">Fórmula: TESE DO PARÁGRAFO → ARGUMENTO → DADO/EXEMPLO → CONCLUSÃO PARCIAL</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.8">
+        <span style="color:#7b6cff;font-weight:500">[Tese do §]</span> A desigualdade educacional perpetua ciclos de pobreza no Brasil.
+        <span style="color:#2dcb8f;font-weight:500">[Argumento]</span> Isso ocorre porque estudantes em regiões periféricas têm acesso a menos horas-aula e professores menos capacitados.
+        <span style="color:#f5a623;font-weight:500">[Dado]</span> Segundo o INEP (2022), alunos de escolas públicas da região Nordeste obtêm, em média, 40 pontos a menos no IDEB do que os do Sudeste.
+        <span style="color:#44d9e8;font-weight:500">[Conclusão parcial]</span> Tal disparidade evidencia que a educação, longe de ser o grande equalizador social, reproduz e aprofunda as iniquidades já existentes.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <div style="flex:1;background:var(--bg3);border-radius:var(--r);padding:10px">
+        <div style="font-size:11px;font-weight:600;color:#2dcb8f;margin-bottom:4px">1º parágrafo de desenvolvimento</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.5">Causa principal do problema. O mais importante argumento. Começa com conectivo de adição ou direto na tese do parágrafo.</div>
+      </div>
+      <div style="flex:1;background:var(--bg3);border-radius:var(--r);padding:10px">
+        <div style="font-size:11px;font-weight:600;color:#f5a623;margin-bottom:4px">2º parágrafo de desenvolvimento</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.5">Segunda causa ou consequência. Começa com conectivo de adição ("Além disso", "Ademais", "Outrossim").</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Conclusão — o que deve conter obrigatoriamente</div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:var(--bg3);border-radius:var(--r)">
+        <div style="width:22px;height:22px;border-radius:50%;background:#1a1830;color:#b8b0ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0">1</div>
+        <div>
+          <div style="font-size:13px;font-weight:500">Retomada da tese</div>
+          <div style="font-size:12px;color:var(--text2)">Não repita literalmente — parafraseie a tese com novas palavras.</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:var(--bg3);border-radius:var(--r)">
+        <div style="width:22px;height:22px;border-radius:50%;background:#0d2318;color:#7de8bf;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0">2</div>
+        <div>
+          <div style="font-size:13px;font-weight:500">Síntese dos argumentos</div>
+          <div style="font-size:12px;color:var(--text2)">Conectar os dois argumentos do desenvolvimento com "portanto", "depreende-se que" ou "assim".</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:var(--bg3);border-radius:var(--r)">
+        <div style="width:22px;height:22px;border-radius:50%;background:#1a1828;color:#a4eef5;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0">3</div>
+        <div>
+          <div style="font-size:13px;font-weight:500">Proposta de intervenção completa (5 elementos)</div>
+          <div style="font-size:12px;color:var(--text2)">Agente + ação + meio + efeito + detalhamento. Sem isso, máximo 160 pontos na competência 5.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ ZEROS ══════ -->
+<div id="sec-zeros" class="section">
+  <div class="page-header">
+    <div class="label">Critérios de zeragem</div>
+    <h2>O que zera a redação</h2>
+    <p>Esses critérios resultam em nota zero em toda a redação ou em uma competência específica. Conhecê-los é tão importante quanto saber escrever bem.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="section-label" style="color:#ff6b6b">Zeramento total (0 em todas as competências)</div>
+    <div id="zeros-total"></div>
+  </div>
+
+  <div class="card">
+    <div class="section-label" style="color:#f5a623">Zeramentos parciais (por competência)</div>
+    <div id="zeros-parcial"></div>
+  </div>
+</div>
+
+<!-- ══════ COMPETÊNCIAS ══════ -->
+<div id="sec-comp" class="section">
+  <div class="page-header">
+    <div class="label">Competências</div>
+    <h2 id="comp-title">Competência 1</h2>
+    <p id="comp-subtitle">Domínio da norma culta</p>
+  </div>
+  <div class="comp-tabs" id="comp-tabs"></div>
+  <div id="comp-body"></div>
+</div>
+
+<!-- ══════ CONECTIVOS ══════ -->
+<div id="sec-conectivos" class="section">
+  <div class="page-header">
+    <div class="label">Recursos linguísticos</div>
+    <h2>Conectivos completos</h2>
+    <p>Lista exaustiva de todos os conectivos cobrados no ENEM, organizados por função, com uso específico e exemplo em contexto para cada categoria.</p>
+  </div>
+  <div class="con-cat-tabs" id="con-tabs"></div>
+  <div id="con-body"></div>
+</div>
+
+<!-- ══════ REPERTÓRIO ══════ -->
+<div id="sec-repertorio" class="section">
+  <div class="page-header">
+    <div class="label">Competência 2</div>
+    <h2>Repertório sociocultural</h2>
+    <p>Conjunto de referências de diferentes áreas do conhecimento que podem ser usadas para fundamentar argumentos. Devem ser pertinentes, corretas e bem integradas ao texto.</p>
+  </div>
+  <div id="rep-body"></div>
+</div>
+
+<!-- ══════ ERROS COMUNS ══════ -->
+<div id="sec-erros" class="section">
+  <div class="page-header">
+    <div class="label">Diagnóstico</div>
+    <h2>Erros mais comuns e como evitá-los</h2>
+    <p>Os erros abaixo custam pontos em competências específicas. Identifique os seus e trabalhe neles antes da prova.</p>
+  </div>
+  <div id="erros-body"></div>
+</div>
+
+<!-- ══════ REDAÇÃO MODELO ══════ -->
+<div id="sec-redacao" class="section">
+  <div class="page-header">
+    <div class="label">Exemplo comentado</div>
+    <h2>Redação modelo — nota 1000</h2>
+    <p>Redação completa com cada parte anotada e os elementos da proposta de intervenção destacados por cor.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="section-label">Legenda da proposta de intervenção</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px">
+      <span class="hl hl-ag">Agente</span>
+      <span class="hl hl-ac">Ação</span>
+      <span class="hl hl-me">Modo/Meio</span>
+      <span class="hl hl-ef">Efeito</span>
+      <span class="hl hl-dt">Detalhamento</span>
+    </div>
+  </div>
+
+  <div style="margin-bottom:8px">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--text3);text-transform:uppercase;margin-bottom:6px">Tema</div>
+    <div style="font-size:16px;font-weight:500;color:var(--text)">A invisibilidade do trabalhador doméstico na sociedade brasileira</div>
+  </div>
+  <div id="redacao-body" style="margin-top:16px"></div>
+</div>
+
+<!-- ══════ REDAÇÃO NOTA 1000 — AO VIVO ══════ -->
+<div id="sec-redacao-viva" class="section">
+  <div class="page-header">
+    <div class="label">Redação nota 1000 — interativa</div>
+    <h2>Leia parágrafo por parágrafo</h2>
+    <p>Uma redação real nota 1000, revelada progressivamente. A cada clique você avança um parágrafo e vê a análise completa: conectivo inicial, tema do parágrafo, repertório utilizado, técnicas de coesão e muito mais.</p>
+  </div>
+  <div id="rv-body"></div>
+</div>
+
+<!-- ══════ CHECKLIST ══════ -->
+<div id="sec-checklist" class="section">
+  <div class="page-header">
+    <div class="label">Revisão</div>
+    <h2>Checklist de revisão</h2>
+    <p>Use esta lista após terminar o rascunho. Marque cada item à medida que verificar. O objetivo é chegar a 100% antes de passar a limpo.</p>
+  </div>
+  <div id="check-body"></div>
+</div>
+
+</div><!-- /content -->
+</main>
+</div><!-- /shell -->
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────
+
+const COMPS = [
+  {
+    num:1, cor:'#7b6cff', bg:'#1a1830', ct:'#b8b0ff',
+    titulo:'Domínio da norma culta',
+    resumo:'Gramática, ortografia, pontuação e sintaxe correta',
+    descricao:'Avalia se o candidato escreve corretamente segundo as normas do português formal. A banca conta o número e a gravidade dos desvios — não basta ter poucas palavras erradas se os erros forem gravíssimos (como desconhecimento de concordância básica).',
+    topicos:[
+      {t:'Ortografia', d:'Escrita correta das palavras: "exceção" não "ecisão", "benefício" não "benefico". Atenção a palavras com ss/s/c/ç, x/ch, e/i.'},
+      {t:'Acentuação', d:'Regras de acento agudo, circunflexo e crase. Atenção: "têm" (plural) vs "tem" (singular), "à" (crase), "pôr" (verbo) vs "por" (preposição).'},
+      {t:'Concordância verbal', d:'O verbo concorda em número e pessoa com o sujeito. "Os jovens NÃO TÊM" — não "não tem". Sujeito composto, sujeito coletivo, sujeito posposto.'},
+      {t:'Concordância nominal', d:'Adjetivos, artigos e pronomes concordam com o substantivo. "As políticas PÚBLICAS são NECESSÁRIAS" — não "as política pública é necessária".'},
+      {t:'Regência verbal', d:'Verbos que exigem preposição: "assistir A um filme", "obedecer A as normas", "visar A". Verbos que não exigem: "pagar o aluguel" (não "pagar ao aluguel").'},
+      {t:'Regência nominal', d:'Substantivos e adjetivos que exigem preposição: "direito À educação", "necessidade DE mudanças", "capaz DE", "ausência DE".'},
+      {t:'Crase', d:'Crase = fusão de "a + a". Use antes de palavras femininas com artigo, de expressões de lugar femininas, locuções. Não use antes de verbos, pronomes pessoais, palavras masculinas.'},
+      {t:'Pontuação', d:'Vírgula: não separe sujeito de predicado. Use antes de "mas, porém, entretanto, contudo". Use para isolar aposto e oração adjetiva explicativa. Ponto-e-vírgula separa itens de enumeração longa.'},
+      {t:'Estrutura frasal', d:'Evite períodos incompletos (sem verbo), anacoluto (sujeito abandonado), período muito longo com gerúndio excessivo. Cada período deve ter sujeito e predicado claros.'},
+      {t:'Paralelismo sintático', d:'Elementos coordenados devem ter a mesma estrutura. "O governo deve INVESTIR em educação, CRIAR políticas e AMPLIAR o acesso" — não "investir, criar e que amplie".'},
+    ],
+    niveis:[
+      {p:0, d:'Desconhecimento da norma culta — desvios gravíssimos e numerosos comprometem a leitura'},
+      {p:40, d:'Domínio precário — muitos desvios graves'},
+      {p:80, d:'Domínio insuficiente — desvios graves e frequentes'},
+      {p:120, d:'Domínio mediano — desvios frequentes não graves ou graves não frequentes'},
+      {p:160, d:'Bom domínio — desvios eventuais, não sistemáticos'},
+      {p:200, d:'Excelente domínio — raríssimos desvios'}
+    ],
+    exemplos:[
+      {ruim:'Os jovens não tem acesso a informação de qualidade, sendo assim dificultando o seu desenvolvimento.', bom:'Os jovens não têm acesso a informações de qualidade, o que dificulta o seu desenvolvimento intelectual.', obs:'Correto: "têm" (concordância, plural), "informações" (plural), frase sem gerúndio encadeado incorretamente, pronome relativo "o que" coeso.'},
+      {ruim:'A educação é indispensavel para que haja uma sociedade mais justa, porêm o governo não tem investido suficientemente.', bom:'A educação é indispensável para que haja uma sociedade mais justa; contudo, o governo não tem investido de forma suficiente.', obs:'"indispensável" com acento, "porém" sem acento circunflexo, ponto-e-vírgula antes de conjunção adversativa.'}
+    ],
+    dica:'Ao revisar, leia buscando especificamente: (1) concordâncias, (2) acentos, (3) pontuação após conjunções. Uma vírgula entre sujeito e predicado é erro grave.'
+  },
+  {
+    num:2, cor:'#2dcb8f', bg:'#0d2318', ct:'#7de8bf',
+    titulo:'Compreensão da proposta',
+    resumo:'Tema, tipo textual dissertativo, repertório sociocultural pertinente',
+    descricao:'Avalia se o candidato leu e compreendeu a proposta, se escreveu um texto do tipo correto (dissertativo-argumentativo), se abordou o tema sem fugir e se usou repertório sociocultural pertinente para embasar os argumentos.',
+    topicos:[
+      {t:'Leitura dos textos motivadores', d:'Os textos de apoio não devem ser copiados — devem ser lidos para entender o tema, extrair dados e identificar a perspectiva esperada. Nunca copie mais de 1 linha de qualquer texto motivador.'},
+      {t:'Definição precisa do tema', d:'O tema proposto deve ser abordado com precisão. Se o tema é "saúde mental dos jovens", não escreva sobre saúde em geral ou sobre jovens em geral — escreva sobre a interseção.'},
+      {t:'Tipo textual correto', d:'Dissertativo-argumentativo: tese + argumentos + conclusão. Não é narrativo (sem personagens ou história), não é descritivo (sem listar características), não é expositivo (não apenas informa — defende ponto de vista).'},
+      {t:'Defesa de ponto de vista', d:'O texto deve ter uma tese — uma posição clara do autor sobre o problema. Não seja neutro. "A falta de X é prejudicial e precisa ser combatida" é tese. "X tem lados positivos e negativos" não é tese.'},
+      {t:'Repertório sociocultural pertinente', d:'Referências de diferentes áreas do saber que embasem os argumentos: filosofia, sociologia, legislação, dados estatísticos, literatura, história, ciências. Devem ser corretos, pertinentes e produtivos (não decorativos).'},
+      {t:'Interdisciplinaridade', d:'Use conhecimentos de áreas diferentes: Ciências Humanas, Ciências da Natureza, Linguagens, Matemática. Cruzar áreas do saber demonstra domínio cultural amplo.'},
+      {t:'Não tangenciar o tema', d:'Tangenciar = tocar superficialmente no tema sem aprofundá-lo. Se o tema é "violência contra a mulher", não passe metade da redação falando sobre violência em geral.'},
+    ],
+    niveis:[
+      {p:0, d:'Fuga total ao tema ou ausência de tipologia dissertativo-argumentativa'},
+      {p:40, d:'Tangencia o tema e/ou domínio precário do tipo textual'},
+      {p:80, d:'Desenvolve o tema com domínio insuficiente — repertório sem pertinência'},
+      {p:120, d:'Desenvolve o tema com domínio mediano — repertório limitado mas pertinente'},
+      {p:160, d:'Bom desenvolvimento — repertório adequado e articulado'},
+      {p:200, d:'Excelente desenvolvimento — repertório diversificado, pertinente e produtivo'}
+    ],
+    exemplos:[
+      {ruim:'A violência é um problema sério. Muita gente sofre com isso todo dia nas ruas e em casa.', bom:'Segundo o Atlas da Violência 2023 (IPEA), o Brasil registra mais de 40 mil homicídios anuais, com jovens negros como principal grupo vitimizado. Tal realidade evidencia a relação entre desigualdade estrutural e violência, conforme apontado por Jessé Souza em "A Ralé Brasileira".', obs:'Dado específico (IPEA) + obra filosófico-sociológica (Jessé Souza) + argumento que conecta os dois ao tema.'},
+      {ruim:'Como disse alguém famoso, a educação é muito importante para todos nós.', bom:'Conforme postulava o pedagogo Paulo Freire, a educação não deve ser um ato de "depositar" conteúdos no aluno, mas sim um processo de conscientização crítica — perspectiva que evidencia os limites do modelo educacional brasileiro atual.', obs:'Citação precisa, nome correto, obra implícita ("Pedagogia do Oprimido"), conectada ao argumento.'}
+    ],
+    dica:'O repertório deve ser PRODUTIVO: deve avançar o argumento, não apenas decorar. Pergunte: "essa referência ajuda a provar minha tese?" Se não, troque.'
+  },
+  {
+    num:3, cor:'#f5a623', bg:'#241800', ct:'#ffd07a',
+    titulo:'Organização e argumentação',
+    resumo:'Tese clara, argumentos consistentes, coerência e progressão temática',
+    descricao:'Avalia a qualidade lógica e organizacional do texto: se a tese é clara, se os argumentos a sustentam, se há progressão do raciocínio e se as informações estão organizadas de forma coerente do início ao fim.',
+    topicos:[
+      {t:'Tese explícita na introdução', d:'A introdução deve terminar com a tese — a posição do autor sobre o problema. "Diante disso, torna-se necessário analisar as causas X e Y que perpetuam esse fenômeno" é uma tese adequada.'},
+      {t:'Coerência interna dos parágrafos', d:'Cada parágrafo deve ter uma só ideia central. Não misture dois argumentos diferentes no mesmo parágrafo. A ideia do parágrafo deve ser anunciada na primeira frase (tópico frasal).'},
+      {t:'Progressão argumentativa', d:'O texto deve avançar — cada parágrafo acrescenta algo novo. Não repita a mesma ideia com palavras diferentes. A lógica deve ser: problema → causas → consequências → solução.'},
+      {t:'Consistência dos argumentos', d:'Argumentos não podem se contradizer. Se no §1 você diz que o Estado é omisso e no §2 elogia a lei aprovada, explique a contradição ou mude a abordagem.'},
+      {t:'Relação argumento-tese', d:'Todo argumento deve sustentar a tese central da redação. Se a tese é "a desigualdade perpetua a pobreza", todos os argumentos devem contribuir para essa afirmação.'},
+      {t:'Uso de exemplos e dados', d:'Argumentos abstratos devem ser ancorados em dados concretos, exemplos históricos ou situações reais. "Muitas pessoas sofrem" é vago; "35% dos brasileiros abaixo da linha de pobreza" é concreto.'},
+      {t:'Conclusão coerente com a tese', d:'A conclusão não pode introduzir argumento novo. Deve retomar, sintetizar e propor. Se a tese defendia X, a conclusão não pode relativizar X.'},
+    ],
+    niveis:[
+      {p:0, d:'Informações sem relação com o tema ou sem defesa de ponto de vista'},
+      {p:40, d:'Informações pouco relacionadas, sem progressão temática clara'},
+      {p:80, d:'Informações relacionadas mas desorganizadas ou contraditórias'},
+      {p:120, d:'Informações organizadas mas com argumentação limitada'},
+      {p:160, d:'Boa organização, argumentação consistente com poucas falhas'},
+      {p:200, d:'Argumentação consistente, coerente, progressiva — com autoria e originalidade'}
+    ],
+    exemplos:[
+      {ruim:'A falta de saneamento é um problema. Há muitas doenças. O governo deveria fazer algo. Também tem o problema da educação que é muito importante.', bom:'A precariedade do saneamento básico representa fator direto de proliferação de doenças infecciosas. Segundo o IBGE, 35 milhões de brasileiros vivem sem esgoto tratado, o que os expõe a enfermidades como cólera e hepatite A. Essa omissão estatal viola o direito constitucional à saúde, previsto no artigo 196 da CF/88.', obs:'Parágrafo coeso: tese do § → argumento → dado → conclusão parcial que retoma a tese geral.'},
+    ],
+    dica:'Antes de escrever, monte o esquema: tese central → arg. 1 (causa A) → arg. 2 (causa B) → proposta. Isso evita divagação e garante progressão.'
+  },
+  {
+    num:4, cor:'#9b6cff', bg:'#1a1830', ct:'#c8b8ff',
+    titulo:'Mecanismos de coesão',
+    resumo:'Conectivos, pronomes, sinonímia, paralelismo e articulação textual',
+    descricao:'Avalia os recursos linguísticos que articulam as partes do texto. Um texto coeso não tem repetições excessivas, usa pronomes de retomada, conectivos variados e paralelismo sintático para garantir fluidez.',
+    topicos:[
+      {t:'Conectivos e conjunções', d:'Palavras ou expressões que ligam orações e parágrafos. Devem ser variados — nunca use o mesmo conectivo mais de 2 vezes na redação. Veja a seção de Conectivos para lista completa.'},
+      {t:'Pronomes de retomada', d:'Pronomes que evitam repetir substantivos: "A educação... ela...", "O governo... este...". Use "este/esse" para retomar algo próximo e "aquele" para distante. Não use "mesmo" como pronome ("o governo... o mesmo" — incorreto).'},
+      {t:'Sinonímia e paráfrase', d:'Varie o vocabulário usando sinônimos e paráfrases. "Educação → formação escolar → processo de ensino-aprendizagem". Nunca repita a mesma palavra-chave 3 vezes no mesmo parágrafo.'},
+      {t:'Elipse e substituição lexical', d:'Omitir elemento já mencionado para evitar repetição: "O governo investiu em saúde e [o governo] reformou hospitais" → "O governo investiu em saúde e reformou hospitais".'},
+      {t:'Paralelismo sintático', d:'Elementos coordenados devem ter a mesma função sintática. "A crise AFETA os pobres, PERPETUA a desigualdade e IMPEDE o desenvolvimento" — três verbos no mesmo tempo e modo.'},
+      {t:'Coesão entre parágrafos', d:'O início de cada parágrafo deve fazer referência ao anterior ou anunciar o próximo. Use "Além desse fator...", "No que diz respeito à...", "Diante desse cenário..." para costurar os parágrafos.'},
+      {t:'Articulação introdução-desenvolvimento-conclusão', d:'"Depreende-se, portanto..." ou "Diante do exposto..." sinalizam a conclusão. "Nesse contexto..." ou "Para além disso..." avançam o desenvolvimento. Use esses sinalizadores.'},
+    ],
+    niveis:[
+      {p:0, d:'Ausência total de mecanismos coesivos'},
+      {p:40, d:'Uso precário — repetições excessivas e ausência de conectivos'},
+      {p:80, d:'Uso insuficiente — rupturas frequentes na coesão'},
+      {p:120, d:'Uso mediano — rupturas eventuais, conectivos pouco variados'},
+      {p:160, d:'Bom uso — poucas inadequações, boa variedade'},
+      {p:200, d:'Excelente uso — coesão fluida, variada e sem inadequações'}
+    ],
+    exemplos:[
+      {ruim:'A educação é importante. A educação melhora a vida das pessoas. As pessoas com educação ganham mais. O dinheiro muda a sociedade. A sociedade precisa de educação.', bom:'A educação constitui o principal motor de transformação social. Ao ampliar o repertório crítico dos indivíduos, ela os capacita para o mercado de trabalho e, por conseguinte, para a ascensão socioeconômica — processo que, em escala coletiva, impulsiona o desenvolvimento nacional.', obs:'Pronome de retomada "ela", conectivo causal "ao", consecutivo "por conseguinte", demonstrativo "processo que". Zero repetições de "educação".'}
+    ],
+    dica:'Após escrever, circule todas as repetições de substantivos. Substitua ao menos metade delas por pronomes ou sinônimos. Depois circule os conectivos — se todos forem "também" e "além disso", troque por variações.'
+  },
+  {
+    num:5, cor:'#44d9e8', bg:'#071e22', ct:'#a4eef5',
+    titulo:'Proposta de intervenção',
+    resumo:'5 elementos obrigatórios: agente + ação + meio + efeito + detalhamento',
+    descricao:'A proposta de intervenção é o elemento mais objetivo da redação e o que mais diferencia as notas 800/920/1000. Deve conter exatamente cinco componentes, ser viável, vinculada ao tema discutido e não ferir os direitos humanos.',
+    topicos:[
+      {t:'Agente (quem faz)', d:'Entidade real com poder para executar a ação. Exemplos: "O Ministério da Educação", "O Congresso Nacional", "As prefeituras municipais", "O Poder Judiciário", "As universidades federais". ERROS: "a sociedade" (vago), "as pessoas" (impreciso), "todo mundo" (impossível de executar).'},
+      {t:'Ação (o que fazer)', d:'Verbo no infinitivo descrevendo ação concreta. Exemplos: "implementar programas", "criar legislação", "ampliar o acesso", "regulamentar o uso de", "desenvolver políticas". ERROS: "resolver o problema", "fazer algo", "melhorar a situação" — sempre muito vagos.'},
+      {t:'Modo/Meio (como fazer)', d:'Instrumento ou canal pelo qual a ação será realizada. Exemplos: "por meio de parcerias com ONGs", "mediante legislação específica", "através de campanhas educativas", "via plataformas digitais", "com apoio de incentivos fiscais". Deve responder: como exatamente?'},
+      {t:'Efeito (por quê / resultado)', d:'Resultado esperado diretamente ligado ao tema. Exemplos: "a fim de reduzir a evasão escolar", "com o objetivo de garantir acesso à saúde", "visando promover a inclusão digital", "de modo a assegurar os direitos fundamentais". Deve responder: qual o resultado?'},
+      {t:'Detalhamento (aprofundamento)', d:'É o que diferencia 160 de 200 pontos. Aprofunda UM dos quatro elementos anteriores. Pode ser: uma lei citada, uma comparação com outro país, um dado que justifica, uma consequência de longo prazo. Exemplos: "— medida que, conforme previsto no art. 196 da CF/88, é obrigação do Estado...", "— iniciativa inspirada no modelo finlandês de educação..."'},
+      {t:'Respeito aos direitos humanos', d:'A proposta não pode sugerir: pena de morte, tortura, perseguição de grupos, discriminação, restrição de liberdades fundamentais, punição coletiva. Uma proposta que fere direitos humanos zera toda a competência 5.'},
+      {t:'Vinculação ao tema', d:'A proposta deve resolver exatamente o problema discutido na redação. Se você argumentou sobre desigualdade educacional, a proposta não pode ser sobre saúde. Deve haver coerência entre tese → argumentos → proposta.'},
+    ],
+    niveis:[
+      {p:0, d:'Sem proposta, proposta que fere os direitos humanos ou sem relação com o tema'},
+      {p:40, d:'Proposta vaga, sem elementos identificáveis'},
+      {p:80, d:'Proposta com poucos elementos e sem articulação com o tema'},
+      {p:120, d:'Proposta mediana — relacionada mas sem detalhamento'},
+      {p:160, d:'Boa proposta — quatro elementos presentes, articulada ao tema'},
+      {p:200, d:'Proposta completa — cinco elementos, detalhada e articulada'}
+    ],
+    exemplos:[
+      {ruim:'O governo deve fazer campanhas para resolver esse problema e conscientizar a população.', bom:'O <span class="hl hl-ag">Ministério da Educação</span> deve <span class="hl hl-ac">implementar programas de letramento midiático nas escolas públicas</span>, <span class="hl hl-me">por meio de parcerias com universidades federais e capacitação continuada de professores</span>, <span class="hl hl-ef">a fim de formar cidadãos críticos capazes de identificar desinformação</span> — <span class="hl hl-dt">medida que, ao ser integrada ao currículo desde o ensino fundamental, cria bases sólidas para uma democracia mais resistente à manipulação informacional</span>.', obs:'Todos os 5 elementos presentes. O detalhamento aprofunda o efeito de longo prazo da medida.'},
+    ],
+    dica:'Use a fórmula: [AGENTE] deve [AÇÃO], [MEIO], [EFEITO] — [DETALHAMENTO]. Escreva em uma única frase longa e bem articulada. O travessão antes do detalhamento ajuda a sinalizá-lo visualmente.'
+  }
+];
+
+const CONECTIVOS = [
+  {
+    cat:'Adição', cor:'#2dcb8f', bg:'rgba(45,203,143,.15)', bord:'rgba(45,203,143,.4)',
+    desc:'Acrescentam uma ideia à anterior, somando argumentos ou informações.',
+    lista:[
+      {c:'além disso', u:'Acrescenta informação ao argumento anterior. O mais neutro e versátil.'},
+      {c:'ademais', u:'Mais formal que "além disso". Usa-se para acrescentar argumento de igual peso.'},
+      {c:'outrossim', u:'Muito formal. Equivale a "além disso". Impressiona a banca mas use com moderação.'},
+      {c:'não apenas... mas também', u:'Estrutura de adição contrastiva. Ênfase no segundo elemento.'},
+      {c:'bem como', u:'Une elementos paralelos em enumeração. "O governo deve investir em saúde, bem como em educação."'},
+      {c:'ainda', u:'Acrescenta com sentido de progressão ou enfatização. "Ainda é necessário..."'},
+      {c:'e', u:'Coordenada aditiva mais simples. Evite em excesso no início de períodos.'},
+      {c:'também', u:'Informal. Funciona mas não impressiona a banca. Use com moderação.'},
+      {c:'de igual modo', u:'Formal. Indica que algo ocorre da mesma forma que o anterior.'},
+      {c:'igualmente', u:'Mesmo valor semântico de "de igual modo".'},
+    ],
+    ex:'"A falta de saneamento gera doenças. Além disso, compromete a produtividade econômica das famílias e reduz a expectativa de vida da população periférica."'
+  },
+  {
+    cat:'Oposição', cor:'#ff6b6b', bg:'rgba(255,107,107,.12)', bord:'rgba(255,107,107,.4)',
+    desc:'Introduzem ideia contrária, limitam ou contrastam com o que foi dito antes.',
+    lista:[
+      {c:'no entanto', u:'Contrapõe a ideia anterior. O mais usado no ENEM. Use para virar o argumento.'},
+      {c:'contudo', u:'Mesmo valor semântico de "no entanto", mais formal.'},
+      {c:'todavia', u:'Formal. Equivale a "contudo". Boa variação para não repetir "no entanto".'},
+      {c:'entretanto', u:'Formal. Mesmo uso. Pode aparecer no início ou após vírgula.'},
+      {c:'porém', u:'Mais leve. Pode aparecer após vírgula no meio da oração.'},
+      {c:'mas', u:'Mais informal e direto. Não use no início de período — use "Mas" apenas com muita cautela.'},
+      {c:'embora', u:'Conjunção concessiva + subjuntivo: "embora seja necessário...". Boa para introduzir ressalvas.'},
+      {c:'apesar de', u:'Preposição + substantivo ou infinitivo: "apesar dos avanços legislativos..."'},
+      {c:'ainda que', u:'Equivale a "embora". "Ainda que o governo invista..."'},
+      {c:'não obstante', u:'Muito formal. "Não obstante os esforços..."'},
+      {c:'ao passo que', u:'Contrasta duas situações simultâneas. "O Brasil cresce economicamente, ao passo que a desigualdade persiste."'},
+    ],
+    ex:'"O Brasil possui legislação ambiental avançada. No entanto, a fiscalização do cumprimento das normas ainda é precária, especialmente nas regiões de fronteira agrícola."'
+  },
+  {
+    cat:'Causa', cor:'#f5a623', bg:'rgba(245,166,35,.12)', bord:'rgba(245,166,35,.4)',
+    desc:'Explicam o motivo ou a razão pela qual algo acontece.',
+    lista:[
+      {c:'porque', u:'Causa direta e explícita. Conecta oração subordinada à principal.'},
+      {c:'pois', u:'Causa ou explicação. Nunca inicie período com "pois" no ENEM.'},
+      {c:'visto que', u:'Formal. Introduz oração causal explicativa. "Visto que o problema persiste..."'},
+      {c:'tendo em vista que', u:'Formal. Mesmo uso de "visto que". Boa opção para não repetir.'},
+      {c:'uma vez que', u:'Formal. Pode indicar causa ou condição. Muito usado em redações nota 900+.'},
+      {c:'já que', u:'Mais coloquial. Use apenas quando a causa for assumida como óbvia.'},
+      {c:'dado que', u:'Formal. "Dado que o sistema é falho, reformas são urgentes."'},
+      {c:'haja vista que', u:'Muito formal. "Haja vista que os dados comprovam..."'},
+      {c:'como', u:'Causal no início da frase: "Como o modelo é ineficiente, reformas são necessárias."'},
+    ],
+    ex:'"A mobilidade social permanece restrita no Brasil, visto que o sistema educacional reproduz as desigualdades socioeconômicas já existentes nas famílias de origem dos estudantes."'
+  },
+  {
+    cat:'Consequência', cor:'#7b6cff', bg:'rgba(123,108,255,.12)', bord:'rgba(123,108,255,.4)',
+    desc:'Introduzem o resultado, o efeito ou a decorrência de algo mencionado antes.',
+    lista:[
+      {c:'portanto', u:'Consequência lógica. Introduz conclusão de argumento. Pode ser usado na conclusão da redação.'},
+      {c:'logo', u:'Consequência imediata e lógica. Mais direto que "portanto".'},
+      {c:'consequentemente', u:'Resultado direto. "...consequentemente, a taxa de mortalidade aumentou."'},
+      {c:'assim', u:'Consequência suave. Boa para encerrar parágrafos de desenvolvimento.'},
+      {c:'desse modo', u:'Consequência que retoma o argumento. "Desse modo, evidencia-se que..."'},
+      {c:'dessa forma', u:'Equivalente a "desse modo". Use para variar.'},
+      {c:'de modo que', u:'Conjunção consecutiva. "O investimento foi insuficiente, de modo que o projeto fracassou."'},
+      {c:'tanto... que', u:'Estrutura intensiva + consecutiva: "O problema é tão grave que..."'},
+      {c:'por isso', u:'Mais direto e informal. Use com moderação.'},
+      {c:'em decorrência disso', u:'Formal. Boa para parágrafos de desenvolvimento.'},
+    ],
+    ex:'"A automação substituiu postos de trabalho tradicionais. Consequentemente, trabalhadores sem qualificação digital enfrentam exclusão progressiva do mercado formal."'
+  },
+  {
+    cat:'Finalidade', cor:'#44d9e8', bg:'rgba(68,217,232,.12)', bord:'rgba(68,217,232,.4)',
+    desc:'Indicam o objetivo, a meta ou o propósito de uma ação. Fundamentais para a proposta de intervenção.',
+    lista:[
+      {c:'a fim de', u:'Finalidade + infinitivo. "...a fim de garantir direitos fundamentais."'},
+      {c:'para que', u:'Finalidade + subjuntivo. "...para que a população tenha acesso..."'},
+      {c:'com o intuito de', u:'Mais formal que "a fim de". Boa variação para a proposta.'},
+      {c:'com vistas a', u:'Formal. Muito comum em textos legislativos. Impressiona a banca.'},
+      {c:'com o objetivo de', u:'Direto. "...com o objetivo de reduzir a desigualdade."'},
+      {c:'de forma a', u:'Indica resultado esperado como consequência da ação.'},
+      {c:'visando', u:'Particípio. "...visando promover a inclusão digital."'},
+      {c:'para', u:'Mais simples. Funciona mas não impressiona. Use para variar.'},
+    ],
+    ex:'"O Estado deve ampliar o investimento em educação básica, com vistas a garantir igualdade de oportunidades a todos os cidadãos, independentemente de sua origem socioeconômica."'
+  },
+  {
+    cat:'Conclusão / Síntese', cor:'#ff9f43', bg:'rgba(255,159,67,.12)', bord:'rgba(255,159,67,.4)',
+    desc:'Sintetizam o que foi dito ou introduzem a conclusão do argumento ou do texto.',
+    lista:[
+      {c:'em suma', u:'Resume os argumentos apresentados. Ideal para iniciar a conclusão.'},
+      {c:'em síntese', u:'Equivalente a "em suma". Use para variar.'},
+      {c:'depreende-se que', u:'Formal. "Depreende-se, portanto, que..." — excelente para concluir.'},
+      {c:'conclui-se que', u:'Direto. Introduz conclusão explicitamente.'},
+      {c:'diante do exposto', u:'Clássico do ENEM. Sinaliza que a conclusão está chegando.'},
+      {c:'em face do exposto', u:'Mais formal que "diante do exposto". Boa variação.'},
+      {c:'sendo assim', u:'Coloquial. Funciona mas é menos sofisticado que as opções acima.'},
+      {c:'infere-se, pois, que', u:'Muito formal. Indica inferência lógica dos argumentos.'},
+    ],
+    ex:'"Depreende-se, portanto, que a invisibilidade do trabalhador doméstico resulta da intersecção entre racismo estrutural e omissão estatal na fiscalização trabalhista."'
+  },
+  {
+    cat:'Exemplificação', cor:'#a29bfe', bg:'rgba(162,155,254,.12)', bord:'rgba(162,155,254,.4)',
+    desc:'Introduzem exemplos concretos, ilustrações ou casos específicos para embasar argumentos.',
+    lista:[
+      {c:'por exemplo', u:'O mais direto. Introduz caso concreto. Use após dois pontos ou vírgula.'},
+      {c:'como', u:'Comparativo ou exemplificativo. "Como ocorre em países como Finlândia..."'},
+      {c:'nesse sentido', u:'Retoma o argumento e introduz exemplificação ou desenvolvimento.'},
+      {c:'tal realidade', u:'Retoma a situação descrita para avançar o argumento.'},
+      {c:'a exemplo de', u:'Formal. "A exemplo do que ocorre na Coreia do Sul..."'},
+      {c:'tome-se como exemplo', u:'Imperativo que introduz exemplo. Formal e elegante.'},
+      {c:'é o que ocorre com', u:'Estrutura de exemplificação específica.'},
+    ],
+    ex:'"Diversas nações implementaram políticas eficazes de inclusão digital. Nesse sentido, a Estônia destaca-se ao garantir acesso à internet como direito constitucional desde 2000."'
+  },
+  {
+    cat:'Explicação', cor:'#fd79a8', bg:'rgba(253,121,168,.12)', bord:'rgba(253,121,168,.4)',
+    desc:'Reexplicam, esclarecem ou expandem o que foi dito anteriormente.',
+    lista:[
+      {c:'ou seja', u:'Reexplica com outras palavras. Muito útil para clarificar termos técnicos.'},
+      {c:'isto é', u:'Mais formal que "ou seja". Equivalente.'},
+      {c:'a saber', u:'Muito formal. Introduz listagem ou detalhamento: "três causas, a saber: X, Y e Z."'},
+      {c:'em outras palavras', u:'Reformula o que foi dito. Bom para parafrasear citações.'},
+      {c:'quer dizer', u:'Mais coloquial. Funciona mas é menos sofisticado.'},
+      {c:'segundo / conforme / de acordo com', u:'Atribui a informação a uma fonte específica. Fundamental para repertório.'},
+      {c:'na concepção de', u:'Formal. "Na concepção de Bourdieu, o capital cultural..."'},
+    ],
+    ex:'"O letramento midiático — ou seja, a capacidade de analisar criticamente as informações recebidas pelos meios de comunicação — representa ferramenta essencial no combate à desinformação."'
+  },
+  {
+    cat:'Condição / Tempo', cor:'#55efc4', bg:'rgba(85,239,196,.12)', bord:'rgba(85,239,196,.4)',
+    desc:'Estabelecem condições para que algo ocorra ou situam a ação no tempo.',
+    lista:[
+      {c:'se', u:'Condição direta. "Se o Estado investir, os resultados serão positivos."'},
+      {c:'caso', u:'Condição hipotética mais formal. "Caso o investimento não ocorra..."'},
+      {c:'desde que', u:'Condição + restrição. "...desde que respeitados os direitos fundamentais."'},
+      {c:'quando', u:'Simultaneidade ou posteridade temporal.'},
+      {c:'enquanto', u:'Simultaneidade. Também usado para contraste: "enquanto uns têm, outros carecem."'},
+      {c:'após', u:'Posteridade formal. Mais elegante que "depois de".'},
+      {c:'à medida que', u:'Proporcionalidade progressiva. "À medida que o acesso avança, novos desafios surgem."'},
+      {c:'na medida em que', u:'Causa proporcional. "Na medida em que o Estado omite-se, a desigualdade aprofunda-se."'},
+      {c:'conforme', u:'Proporcionalidade ou conformidade. "Conforme apontado por..." ou "Conforme cresce a digitalização..."'},
+    ],
+    ex:'"À medida que o acesso à internet se expande nos países em desenvolvimento, novas formas de desinformação emergem e desafiam os sistemas democráticos."'
+  }
+];
+
+const REPERTORIO = [
+  {
+    cat:'Filosofia e Sociologia', cor:'#7b6cff',
+    itens:[
+      {n:'Platão', d:'A alegoria da caverna (ignorância → conhecimento). Ideal para temas de educação e consciência crítica.'},
+      {n:'Aristóteles', d:'"O homem é um animal político." Ideal para temas de cidadania e vida em sociedade.'},
+      {n:'Karl Marx', d:'Luta de classes, alienação do trabalho, infraestrutura e superestrutura. Ideal para desigualdade e trabalho.'},
+      {n:'Émile Durkheim', d:'Fato social, solidariedade mecânica e orgânica, anomia. Ideal para sociedade e normas.'},
+      {n:'Michel Foucault', d:'Poder disciplinar, biopoder, vigilância e punição. Ideal para temas de controle social e saúde.'},
+      {n:'Pierre Bourdieu', d:'Capital cultural, habitus, campo social, violência simbólica. Ideal para educação e desigualdade.'},
+      {n:'Zygmunt Bauman', d:'Modernidade líquida, identidade fluida. Ideal para temas de consumismo e relações na era digital.'},
+      {n:'Hannah Arendt', d:'"A banalidade do mal." Ideal para temas de violência, autoritarismo e responsabilidade cívica.'},
+      {n:'Paulo Freire', d:'Educação bancária vs. pedagogia do oprimido. Ideal para qualquer tema de educação.'},
+      {n:'Jessé Souza', d:'"A Ralé Brasileira" — desigualdade estrutural no Brasil. Ideal para desigualdade social nacional.'},
+    ]
+  },
+  {
+    cat:'Legislação brasileira', cor:'#2dcb8f',
+    itens:[
+      {n:'CF/88 — Art. 6º', d:'Direitos sociais: educação, saúde, alimentação, trabalho, moradia, transporte, lazer, segurança, previdência, proteção à maternidade, assistência aos desamparados.'},
+      {n:'CF/88 — Art. 196', d:'"A saúde é direito de todos e dever do Estado." Para temas de saúde pública.'},
+      {n:'CF/88 — Art. 205', d:'"A educação é direito de todos e dever do Estado." Para temas de educação.'},
+      {n:'Lei Maria da Penha (11.340/2006)', d:'Proteção à mulher vítima de violência doméstica. Para temas de violência de gênero.'},
+      {n:'ECA — Estatuto da Criança (8.069/1990)', d:'Direitos de crianças e adolescentes. Para temas de infância, educação, trabalho infantil.'},
+      {n:'PEC das Domésticas (EC 72/2013)', d:'Ampliou direitos trabalhistas de domésticos. Para temas de trabalho doméstico e desigualdade.'},
+      {n:'Lei de Cotas (12.711/2012)', d:'Reserva de vagas nas universidades federais. Para temas de educação e desigualdade racial.'},
+      {n:'Marco Civil da Internet (12.965/2014)', d:'Direitos e deveres dos usuários na internet. Para temas de tecnologia e privacidade.'},
+      {n:'LGPD (13.709/2018)', d:'Lei Geral de Proteção de Dados. Para temas de privacidade digital e tecnologia.'},
+    ]
+  },
+  {
+    cat:'Dados e Organismos', cor:'#f5a623',
+    itens:[
+      {n:'IBGE', d:'Instituto Brasileiro de Geografia e Estatística. Censos, dados de renda, educação, saneamento. Citar o ano é fundamental.'},
+      {n:'IPEA', d:'Instituto de Pesquisa Econômica Aplicada. Atlas da Violência, dados de desigualdade, pobreza, mercado de trabalho.'},
+      {n:'INEP', d:'Instituto Nacional de Estudos e Pesquisas Educacionais. IDEB, PISA, dados educacionais.'},
+      {n:'OMS / WHO', d:'Organização Mundial da Saúde. Dados de saúde global, expectativa de vida, doenças.'},
+      {n:'ONU / PNUD', d:'IDH, Objetivos de Desenvolvimento Sustentável (ODS). Para temas de desenvolvimento humano.'},
+      {n:'Banco Mundial', d:'Dados de desigualdade, Índice de Gini, pobreza extrema global.'},
+      {n:'OCDE / PISA', d:'Avaliação internacional de educação. Para comparar o Brasil com outros países.'},
+    ]
+  },
+  {
+    cat:'Literatura e Arte', cor:'#ff6b6b',
+    itens:[
+      {n:'Machado de Assis', d:'"Memórias Póstumas" — crítica social e hipocrisia. "Dom Casmurro" — ciúme e ambiguidade. Para temas sociais brasileiros.'},
+      {n:'Graciliano Ramos', d:'"Vidas Secas" — seca, pobreza, desumanização no Nordeste. Para desigualdade regional.'},
+      {n:'Euclides da Cunha', d:'"Os Sertões" — a guerra de Canudos, abandono do interior. Para temas de desigualdade regional.'},
+      {n:'Carolina Maria de Jesus', d:'"Quarto de Despejo" — vida na favela, fome, invisibilidade social. Para temas de pobreza e raça.'},
+      {n:'Guimarães Rosa', d:'"Grande Sertão: Veredas" — sertão como metáfora do Brasil profundo.'},
+      {n:'Conceição Evaristo', d:'Escrevivência, literatura negra, experiência de mulheres negras. Para temas de raça e gênero.'},
+      {n:'George Orwell', d:'"1984" — totalitarismo, vigilância, manipulação da informação. Para temas de tecnologia e democracia.'},
+      {n:'Aldous Huxley', d:'"Admirável Mundo Novo" — controle social pelo prazer. Para consumismo e liberdade.'},
+    ]
+  },
+  {
+    cat:'Ciências e Tecnologia', cor:'#44d9e8',
+    itens:[
+      {n:'Revolução 4.0', d:'Automação, inteligência artificial e transformação do mercado de trabalho. Impacto na empregabilidade.'},
+      {n:'Aquecimento global / Acordo de Paris', d:'Metas de redução de emissões de CO₂. Para temas ambientais.'},
+      {n:'Pandemia de COVID-19', d:'Desigualdades expostas, impacto na saúde mental, aceleração digital. Para vários temas contemporâneos.'},
+      {n:'Inteligência Artificial', d:'Substituição de postos de trabalho, deepfakes, desinformação, vieses algorítmicos.'},
+      {n:'CRISPR / Biotecnologia', d:'Edição genética, dilemas éticos, acesso à medicina de precisão. Para temas de ética e ciência.'},
+    ]
+  }
+];
+
+const ERROS = [
+  {n:'Fuga ao tema', comp:'C2', d:'Escrever sobre assunto diferente do proposto. É o erro mais grave — zera a competência 2. Solução: leia a proposta 3 vezes antes de escrever e verifique no meio do texto se está no caminho certo.'},
+  {n:'Ausência de proposta de intervenção', comp:'C5', d:'Esquecer de propor a solução ou propor uma frase vaga como "o governo deve agir". Solução: memorize a fórmula e treine 10 propostas completas antes da prova.'},
+  {n:'Proposta que fere direitos humanos', comp:'C5', d:'Sugerir pena de morte, castração química, punição coletiva etc. Zera a competência 5. Solução: sempre proponha educação, fiscalização, políticas públicas ou leis — nunca punição extrema.'},
+  {n:'Cópia dos textos motivadores', comp:'C2/C3', d:'Reproduzir frases inteiras dos textos de apoio como se fossem argumento próprio. Solução: use apenas dados ou ideias dos textos, sempre reescrevendo com suas palavras.'},
+  {n:'Texto com menos de 7 linhas', comp:'Todas', d:'Texto muito curto é anulado. Solução: treinar para escrever no mínimo 20 linhas (500 palavras) com conteúdo de qualidade.'},
+  {n:'Concordância verbal errada', comp:'C1', d:'"Os jovens não tem..." (correto: "têm"). Sujeito plural exige verbo plural. Solução: ao revisar, sublinhe cada verbo e identifique o sujeito.'},
+  {n:'Vírgula entre sujeito e predicado', comp:'C1', d:'"A educação, é fundamental para o desenvolvimento." A vírgula separa sujeito do verbo — grave erro de pontuação. Solução: nunca coloque vírgula direto após o sujeito e antes do verbo.'},
+  {n:'Gerúndio encadeado', comp:'C1', d:'"sendo assim dificultando", "tornando-se cada vez mais aumentando". Gerúndio após gerúndio é desvio grave. Solução: reformule com orações subordinadas: "o que dificulta", "o que aumenta".'},
+  {n:'Repetição excessiva de palavras', comp:'C4', d:'Usar a mesma palavra 4, 5 vezes no mesmo parágrafo quebra a coesão e empobrece o texto. Solução: liste sinônimos para as palavras-chave do seu tema antes da prova.'},
+  {n:'Sem tese explícita', comp:'C3', d:'Introdução que não termina com posição clara do autor. Solução: o último período da introdução deve sempre conter a tese: "torna-se fundamental...", "evidencia-se que...", "é preciso reconhecer que..."'},
+  {n:'Parágrafo sem conclusão parcial', comp:'C3', d:'Parágrafo que termina com dado ou exemplo, sem concluir o argumento. Solução: o último período de cada § de desenvolvimento deve conectar o argumento à tese geral.'},
+  {n:'Uso de "mesmos" como pronome', comp:'C1/C4', d:'"O governo... O mesmo é responsável..." — uso de "mesmo" como pronome pessoal é erro grave. Solução: use "ele", "este", "esse" ou repita o substantivo.'},
+  {n:'Texto narrativo disfarçado', comp:'C2', d:'Usar uma história ou narrativa de vida como se fosse argumento. Exemplo: "Minha vizinha sofreu com isso..." Solução: use exemplos reais e impessoais, com dados verificáveis.'},
+  {n:'Repertório inventado', comp:'C2', d:'Inventar dados estatísticos, citar obras inexistentes ou atribuir frases erradas a autores. A banca detecta. Solução: só cite referências que você realmente conhece.'},
+  {n:'Ausência de conectivos entre parágrafos', comp:'C4', d:'Parágrafos sem ligação entre si — o texto lê-se como uma lista de tópicos desconexos. Solução: o primeiro período de cada § deve fazer referência ao § anterior ou à tese.'},
+];
+
+const REDACAO = [
+  {
+    tipo:'Introdução', cor:'#7b6cff',
+    texto:'Em 1887, o romancista francês Émile Zola alertou, em <em>Germinal</em>, para a desumanização imposta aos trabalhadores invisíveis pelo sistema econômico moderno. No Brasil contemporâneo, tal invisibilidade persiste de forma distinta: o trabalhador doméstico — majoritariamente mulheres negras — permanece marginalizado, mesmo após avanços legislativos como a Emenda Constitucional 72/2013. Diante disso, torna-se fundamental analisar as causas estruturais dessa exclusão para propor soluções efetivas.',
+    analise:'Repertório sociocultural: Zola + EC 72. Contextualização histórica. Tese explícita no final ("torna-se fundamental analisar as causas..."). Sem cópia dos textos motivadores.'
+  },
+  {
+    tipo:'Desenvolvimento 1', cor:'#2dcb8f',
+    texto:'O primeiro fator que perpetua a invisibilidade do trabalhador doméstico é o racismo estrutural. Segundo a socióloga Lélia Gonzalez, a divisão racial do trabalho no Brasil é herança direta da escravidão, que delegou historicamente às mulheres negras as funções de cuidado e serviço doméstico. Tal realidade reflete-se nos dados: de acordo com o IBGE (2022), 65% dos trabalhadores domésticos são mulheres negras, e apenas 30% possuem carteira assinada. Assim, a desvalorização dessa categoria profissional não é acidental — ela é estrutural, alimentada por séculos de subalternização.',
+    analise:'Repertório: Lélia Gonzalez (sociologia) + IBGE (dado). Estrutura: tese do § → embasamento teórico → dado → conclusão parcial. Coesão: "Tal realidade", "Assim", "ela" (pronome).'
+  },
+  {
+    tipo:'Desenvolvimento 2', cor:'#f5a623',
+    texto:'Além do racismo estrutural, a ausência de fiscalização trabalhista contribui para a marginalização desse grupo. Embora a EC 72/2013 tenha ampliado os direitos dos domésticos — como FGTS e seguro-desemprego —, o cumprimento da legislação permanece precário. Uma vez que grande parte das relações de trabalho doméstico ocorre em ambiente privado, a fiscalização do Ministério do Trabalho encontra barreiras legais para atuar, o que favorece a informalidade. Consequentemente, muitos trabalhadores seguem sem proteção previdenciária, vulneráveis à exploração.',
+    analise:'Conectivos: "Além do" (adição), "Embora" (oposição + subjuntivo), "Uma vez que" (causa), "Consequentemente" (consequência). Dois argumentos encadeados logicamente. Retomada da lei citada na introdução.'
+  },
+  {
+    tipo:'Conclusão e Proposta', cor:'#44d9e8',
+    texto:'Depreende-se, portanto, que a invisibilidade do trabalhador doméstico no Brasil resulta da intersecção entre racismo estrutural e omissão do Estado na fiscalização trabalhista. Para enfrentar tal problema, o <span class="hl hl-ag">Ministério do Trabalho e Emprego</span> deve <span class="hl hl-ac">criar plataformas digitais de registro e formalização de contratos domésticos</span>, <span class="hl hl-me">por meio de parceria com o Cadastro Único do governo federal</span>, <span class="hl hl-ef">a fim de ampliar a cobertura previdenciária dessa categoria</span> — <span class="hl hl-dt">iniciativa que, ao simplificar o processo de regularização e reduzir as barreiras burocráticas, garante direitos constitucionais historicamente negados às trabalhadoras domésticas do país</span>.',
+    analise:'Retomada da tese (sem repetição literal). Síntese dos dois argumentos. Proposta com todos os 5 elementos: Agente + Ação + Meio + Efeito + Detalhamento. Respeita os direitos humanos.'
+  }
+];
+
+const CHECKLIST = [
+  {cat:'Estrutura geral', itens:[
+    'A introdução contextualiza o tema e termina com a tese explícita',
+    'O 1º parágrafo de desenvolvimento tem tópico frasal, argumento, dado/exemplo e conclusão parcial',
+    'O 2º parágrafo de desenvolvimento tem tópico frasal, argumento, dado/exemplo e conclusão parcial',
+    'A conclusão retoma a tese sem repetição literal',
+    'A conclusão contém a proposta de intervenção completa',
+    'O texto tem no mínimo 7 linhas (≈ 150 palavras)',
+  ]},
+  {cat:'Proposta de intervenção', itens:[
+    'Agente definido e específico (ex: "Ministério da Educação", não "o governo")',
+    'Ação concreta com verbo no infinitivo',
+    'Modo/Meio especificado (como a ação será realizada)',
+    'Efeito esperado indicado com "a fim de", "com o objetivo de" ou equivalente',
+    'Detalhamento presente (aprofunda um dos elementos)',
+    'A proposta não fere os direitos humanos',
+    'A proposta está vinculada ao tema da redação',
+  ]},
+  {cat:'Norma culta (C1)', itens:[
+    'Todas as concordâncias verbais estão corretas',
+    'Todas as concordâncias nominais estão corretas',
+    'Não há erros de ortografia (ss/s/c/ç, x/ch, etc.)',
+    'Acentuação correta (têm/tem, à, pôr/por)',
+    'Nenhuma vírgula separa sujeito de predicado',
+    'Sem gerúndio encadeado ("sendo assim dificultando")',
+    'Não usei "mesmo" como pronome ("o governo... o mesmo")',
+  ]},
+  {cat:'Coesão e conectivos (C4)', itens:[
+    'Não repeti a mesma palavra-chave mais de 2 vezes no mesmo parágrafo',
+    'Usei pronomes de retomada em vez de repetir substantivos',
+    'Os parágrafos estão interligados com conectivos no início',
+    'Usei pelo menos 3 tipos diferentes de conectivos na redação',
+    'Os conectivos têm valor semântico correto (não usei "portanto" para causa)',
+  ]},
+  {cat:'Repertório e argumentação (C2/C3)', itens:[
+    'Usei pelo menos uma referência de filosofia, sociologia ou legislação',
+    'Citei dado estatístico com fonte identificada',
+    'O repertório é pertinente — ajuda a provar a tese',
+    'Não inventei dados nem citações',
+    'Os argumentos sustentam a tese e não se contradizem',
+    'O texto não é narrativo (sem personagens, sem história em 1ª pessoa)',
+  ]}
+];
+
+// ── RENDER ────────────────────────────────────────────────────────────────
+
+let compAtiva = 0;
+let conCatAtiva = 0;
+
+function nav(sec, ci) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const el = document.getElementById('sec-' + sec);
+  if (el) el.classList.add('active');
+
+  // mark nav item
+  document.querySelectorAll('.nav-item[data-sec="' + sec + '"]').forEach(n => {
+    if (ci === undefined || n.dataset.ci == ci) n.classList.add('active');
+  });
+
+  if (sec === 'comp') {
+    compAtiva = ci !== undefined ? parseInt(ci) : 0;
+    renderComp();
+  }
+  if (sec === 'visao-geral') renderVisaoGeral();
+  if (sec === 'estrutura') renderEstrutura();
+  if (sec === 'zeros') renderZeros();
+  if (sec === 'conectivos') renderConectivos();
+  if (sec === 'repertorio') renderRepertorio();
+  if (sec === 'erros') renderErros();
+  if (sec === 'redacao') renderRedacao();
+  if (sec === 'redacao-viva') { rvStep=0; rvShownDetails=false; renderRedacaoViva(); }
+  if (sec === 'checklist') renderChecklist();
+
+  document.querySelector('.main').scrollTop = 0;
+}
+
+function renderComp() {
+  const c = COMPS[compAtiva];
+  document.getElementById('comp-title').textContent = 'Competência ' + c.num;
+  document.getElementById('comp-subtitle').textContent = c.titulo;
+
+  // tabs
+  document.getElementById('comp-tabs').innerHTML = COMPS.map((cc, i) =>
+    `<div class="comp-tab ${i===compAtiva?'on':''}" style="${i===compAtiva?'--ac:'+cc.cor+';border-color:'+cc.cor:''}" onclick="compAtiva=${i};renderComp()">
+      <div style="width:18px;height:18px;border-radius:50%;background:${cc.bg};color:${cc.ct};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">${cc.num}</div>
+      ${cc.titulo.split(' ').slice(0,2).join(' ')}
+    </div>`
+  ).join('');
+
+  const ni = c.niveis;
+  const exs = c.exemplos.map(e => `
+    <div class="grid2">
+      <div class="ex-block">
+        <div class="ex-label" style="color:#ff6b6b">EXEMPLO FRACO</div>
+        <div class="ex-text">"${e.ruim}"</div>
+      </div>
+      <div class="ex-block" style="border:1px solid rgba(45,203,143,.3)">
+        <div class="ex-label" style="color:#2dcb8f">EXEMPLO FORTE</div>
+        <div class="ex-text">"${e.bom}"</div>
+        <div class="ex-obs">${e.obs}</div>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('comp-body').innerHTML = `
+    <div class="card" style="margin-bottom:14px">
+      <p style="font-size:14px;line-height:1.7;color:var(--text2);margin-bottom:14px">${c.descricao}</p>
+      <div class="section-label" style="color:${c.ct}">Tópicos abordados</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        ${c.topicos.map(t=>`
+          <div style="background:var(--bg3);border-radius:var(--r);padding:12px">
+            <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px">${t.t}</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.6">${t.d}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <div class="section-label">Exemplos — fraco vs. forte</div>
+      ${exs}
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <div class="section-label">Níveis de pontuação</div>
+      ${ni.map(n=>`
+        <div class="nivel-row">
+          <div class="nivel-pts" style="color:${n.p===200?c.cor:'var(--text3)'}">${n.p}</div>
+          <div class="nivel-bar" style="height:${20+n.p/10}px;background:${n.p===200?c.cor:'var(--bg3)'}"></div>
+          <div class="nivel-desc" style="color:${n.p===200?'var(--text)':'var(--text2)'}">${n.d}</div>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="card" style="background:${c.bg};border-color:${c.cor}30">
+      <div style="font-size:11px;font-weight:600;letter-spacing:.08em;color:${c.ct};margin-bottom:6px">DICA PRÁTICA</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.7">${c.dica}</div>
+    </div>
+  `;
+}
+
+function renderEstrutura() {
+  const steps = [
+    {cor:'#7b6cff', ct:'#b8b0ff', tit:'Introdução (4–6 linhas)', desc:'Contextualização do tema com repertório sociocultural → apresentação do problema → tese explícita no final. NÃO inclua argumentos ainda.'},
+    {cor:'#2dcb8f', ct:'#7de8bf', tit:'1º desenvolvimento (7–9 linhas)', desc:'Tópico frasal (tese do parágrafo) → argumento com embasamento → dado ou exemplo concreto → conclusão parcial que retoma a tese geral.'},
+    {cor:'#f5a623', ct:'#ffd07a', tit:'2º desenvolvimento (7–9 linhas)', desc:'Começa com conectivo de adição ("Além disso", "Ademais") → segundo argumento com estrutura idêntica ao 1º § → conclusão parcial.'},
+    {cor:'#44d9e8', ct:'#a4eef5', tit:'Conclusão e proposta (4–6 linhas)', desc:'Conectivo conclusivo ("Depreende-se, portanto...") → retomada parafraseada da tese → proposta de intervenção com os 5 elementos.'},
+  ];
+  document.getElementById('estrutura-steps').innerHTML = steps.map((s,i)=>`
+    <div class="estrutura-step">
+      <div class="step-line">
+        <div class="step-circle" style="background:${s.cor}20;color:${s.ct};border:1px solid ${s.cor}50">${i+1}</div>
+        ${i<steps.length-1?'<div class="step-connector"></div>':''}
+      </div>
+      <div class="step-body">
+        <div class="step-title" style="color:${s.ct}">${s.tit}</div>
+        <div class="step-desc">${s.desc}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderZeros() {
+  const total = [
+    {t:'Texto com menos de 7 linhas', d:'Textos muito curtos são automaticamente anulados pela banca, independentemente da qualidade do que foi escrito. A nota zero se aplica a todas as competências.'},
+    {t:'Fuga total ao tema', d:'Escrever sobre assunto completamente diferente do proposto. Texto em branco também é considerado fuga ao tema.'},
+    {t:'Texto que não seja em prosa', d:'Poemas, listas, roteiros, histórias em quadrinhos ou qualquer formato não-prosaico são anulados.'},
+    {t:'Identificação fora do local', d:'Escrever o nome ou qualquer sinal de identificação fora do campo destinado a isso na folha de redação.'},
+    {t:'Texto ilegível', d:'Se a banca não conseguir ler o que foi escrito, a redação é anulada. Letra cursiva ruim pode ser lida com dificuldade, mas letra completamente ilegível anula.'},
+    {t:'Cópia integral dos textos motivadores', d:'Se o texto for composto majoritariamente de cópias dos textos de apoio, é anulado por falta de autoria.'},
+  ];
+  const parcial = [
+    {comp:'C2 — Zerada', t:'Fuga parcial ao tema (tangenciamento grave)', d:'Abordagem que toca no tema sem desenvolvê-lo. A competência 2 pode ser zerada sem zerar as demais.'},
+    {comp:'C2 — Zerada', t:'Tipo textual errado', d:'Texto narrativo (com personagens), dissertativo-expositivo (sem defesa de ponto de vista) ou puramente descritivo.'},
+    {comp:'C5 — Zerada', t:'Proposta que fere os direitos humanos', d:'Sugerir pena de morte, castração química, tortura, remoção forçada de grupos, discriminação de minorias.'},
+    {comp:'C5 — Zerada', t:'Ausência de proposta de intervenção', d:'Não propor solução alguma ou propor algo completamente genérico que não configure proposta.'},
+    {comp:'C1 — 0 pontos', t:'Texto em língua estrangeira', d:'Qualquer trecho em outro idioma (espanhol, inglês etc.) é desconsiderado para essa competência.'},
+  ];
+
+  document.getElementById('zeros-total').innerHTML = total.map((z,i)=>`
+    <div class="zero-card">
+      <h4>${z.t}</h4>
+      <p>${z.d}</p>
+    </div>
+  `).join('');
+
+  document.getElementById('zeros-parcial').innerHTML = parcial.map(z=>`
+    <div style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.25);border-radius:var(--r2);padding:14px 16px;margin-bottom:8px">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <span style="font-size:10px;font-weight:600;background:rgba(245,166,35,.2);color:#ffd07a;padding:2px 8px;border-radius:4px">${z.comp}</span>
+        <span style="font-size:13px;font-weight:500;color:var(--text)">${z.t}</span>
+      </div>
+      <p style="font-size:12px;color:var(--text2);line-height:1.6">${z.d}</p>
+    </div>
+  `).join('');
+}
+
+function renderConectivos() {
+  const tabs = CONECTIVOS.map((c,i)=>`
+    <div class="con-cat-tab ${i===conCatAtiva?'on':''}" style="${i===conCatAtiva?'background:'+c.bg+';border-color:'+c.bord+';color:'+c.cor:''}" onclick="conCatAtiva=${i};renderConectivos()">${c.cat}</div>
+  `).join('');
+  const cat = CONECTIVOS[conCatAtiva];
+  document.getElementById('con-tabs').innerHTML = tabs;
+  document.getElementById('con-body').innerHTML = `
+    <div class="card" style="margin-bottom:14px">
+      <p style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:14px">${cat.desc}</p>
+      ${cat.lista.map(c=>`
+        <div class="con-item">
+          <div class="con-word" style="background:${cat.bg};border-color:${cat.bord};color:${cat.cor}">${c.c}</div>
+          <div class="con-uso">${c.u}</div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="card" style="background:${cat.bg};border-color:${cat.bord}">
+      <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:${cat.cor};margin-bottom:8px">EXEMPLO EM CONTEXTO</div>
+      <div class="ex-text" style="font-size:14px">${cat.ex}</div>
+    </div>
+  `;
+}
+
+function renderRepertorio() {
+  document.getElementById('rep-body').innerHTML = REPERTORIO.map(r=>`
+    <div class="card" style="margin-bottom:12px">
+      <div class="rep-cat" style="color:${r.cor}">${r.cat}</div>
+      ${r.itens.map(item=>`
+        <div class="rep-item">
+          <strong>${item.n}</strong> — ${item.d}
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+function renderErros() {
+  document.getElementById('erros-body').innerHTML = `
+    <div class="card">
+      ${ERROS.map((e,i)=>`
+        <div class="erro-card">
+          <div class="erro-num">${i+1}</div>
+          <div class="erro-body">
+            <div class="etitle">${e.n} <span style="font-size:10px;color:var(--text3);font-weight:400;margin-left:4px">${e.comp}</span></div>
+            <div class="edesc">${e.d}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
+}
+
+function renderRedacao() {
+  document.getElementById('redacao-body').innerHTML = REDACAO.map(p=>`
+    <div class="red-part" style="--ac2:${p.cor}">
+      <div class="red-tipo" style="color:${p.cor}">${p.tipo}</div>
+      <div class="red-texto">${p.texto}</div>
+      <div class="red-analise">
+        <div class="alabel">ANÁLISE</div>
+        <p>${p.analise}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderChecklist() {
+  const checks = {};
+  try { Object.assign(checks, JSON.parse(sessionStorage.getItem('enem-checks') || '{}')); } catch(e){}
+
+  document.getElementById('check-body').innerHTML = CHECKLIST.map((cat,ci)=>`
+    <div class="card" style="margin-bottom:14px">
+      <div class="section-label">${cat.cat}</div>
+      ${cat.itens.map((item,ii)=>{
+        const key = ci+'-'+ii;
+        const done = checks[key];
+        return `<div class="check-item ${done?'checked-item':''}" id="ci-${key}">
+          <div class="check-box ${done?'checked':''}" onclick="toggleCheck('${key}')">
+            ${done?'<svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}
+          </div>
+          <span class="check-text">${item}</span>
+        </div>`;
+      }).join('')}
+    </div>
+  `).join('') + `<button class="btn" onclick="clearChecks()">Limpar checklist</button>`;
+}
+
+function toggleCheck(key) {
+  let checks = {};
+  try { checks = JSON.parse(sessionStorage.getItem('enem-checks') || '{}'); } catch(e){}
+  checks[key] = !checks[key];
+  try { sessionStorage.setItem('enem-checks', JSON.stringify(checks)); } catch(e){}
+  renderChecklist();
+}
+
+function clearChecks() {
+  try { sessionStorage.removeItem('enem-checks'); } catch(e){}
+  renderChecklist();
+}
+
+function renderVisaoGeral() {}
+
+// ── REDAÇÃO VIVA DATA ──────────────────────────────────────────────────────
+const RV_COR = '#fd79a8';
+const RV_TEMA = 'Manipulação do comportamento do usuário pelo controle de dados na internet';
+
+const RV_PARAGRAFOS = [
+  {
+    tipo: 'Introdução',
+    num: 1,
+    texto: `Em seu livro <em>Homo Deus</em>, o historiador Yuval Noah Harari adverte que, no século XXI, o controle sobre os dados equivale ao controle sobre o próprio destino humano. No Brasil contemporâneo, tal premissa materializa-se na atuação das grandes plataformas digitais, que coletam, processam e monetizam as informações dos usuários para moldar comportamentos de consumo, opiniões políticas e até escolhas cotidianas. Diante desse cenário, torna-se imperativo analisar os mecanismos pelos quais esse controle se manifesta e as consequências de sua ausência de regulação efetiva.`,
+    detalhes: [
+      {
+        label: 'Conectivo / abertura',
+        cor: '#7b6cff',
+        texto: 'Não há conectivo de abertura na introdução — ela abre direto com o <strong>repertório sociocultural</strong>. Isso é ideal: inicia com autoridade intelectual, situa o problema historicamente e cria impacto imediato.'
+      },
+      {
+        label: 'Repertório sociocultural',
+        cor: '#2dcb8f',
+        texto: '<strong>Harari, "Homo Deus" (2015)</strong> — obra que trata do futuro da humanidade diante da tecnologia e do controle de dados. Pertinente ao tema e específico: não é citação vaga, é obra identificada com argumento claro.'
+      },
+      {
+        label: 'Contextualização do tema',
+        cor: '#f5a623',
+        texto: 'O parágrafo situa o problema no <strong>Brasil contemporâneo</strong> e nas <strong>plataformas digitais</strong>, que são os agentes centrais do tema. O uso do verbo "materializa-se" conecta a citação filosófica à realidade brasileira — técnica sofisticada de articulação entre repertório e tema.'
+      },
+      {
+        label: 'Tese (última frase)',
+        cor: '#fd79a8',
+        texto: '<strong>"torna-se imperativo analisar os mecanismos pelos quais esse controle se manifesta e as consequências de sua ausência de regulação efetiva"</strong> — tese dupla: anuncia as duas causas que serão desenvolvidas nos parágrafos seguintes (mecanismos + ausência de regulação). Excelente planejamento estrutural.'
+      },
+      {
+        label: 'Competências atendidas',
+        cor: '#44d9e8',
+        texto: '<strong>C2 200:</strong> repertório pertinente e produtivo. <strong>C3 200:</strong> tese explícita e bem planejada. <strong>C1:</strong> sem desvios gramaticais observados.'
+      }
+    ]
+  },
+  {
+    tipo: '1º Desenvolvimento',
+    num: 2,
+    texto: `O primeiro mecanismo de manipulação reside no modelo de negócios das plataformas digitais, estruturado sobre a captura e comercialização de dados pessoais. Segundo Shoshana Zuboff, pesquisadora de Harvard, esse sistema configura o que ela denomina "capitalismo de vigilância": as empresas não apenas observam os usuários, mas os influenciam ativamente para ampliar o engajamento e maximizar o lucro. No Brasil, essa realidade é agravada pela baixa alfabetização digital da população: de acordo com o IBGE (2022), apenas 57% dos brasileiros com mais de 10 anos utilizam a internet com regularidade, o que evidencia que grande parcela da sociedade não compreende os mecanismos pelos quais suas preferências são rastreadas e exploradas. Assim, a assimetria de informação entre usuários e plataformas transforma-se em instrumento de dominação silenciosa.`,
+    detalhes: [
+      {
+        label: 'Conectivo de abertura',
+        cor: '#7b6cff',
+        texto: '<strong>"O primeiro mecanismo"</strong> — conectivo enumerativo que sinaliza organização textual e anuncia que há mais de um argumento. Cria expectativa no leitor e demonstra planejamento. Equivale a iniciar com "Em primeiro lugar", porém mais elegante e integrado à tese.'
+      },
+      {
+        label: 'Tópico frasal (tese do parágrafo)',
+        cor: '#fd79a8',
+        texto: '<strong>"O primeiro mecanismo de manipulação reside no modelo de negócios das plataformas digitais"</strong> — frase de abertura que anuncia exatamente o que o parágrafo vai provar. Toda a argumentação que vem depois serve para sustentar essa afirmação.'
+      },
+      {
+        label: 'Repertório sociocultural',
+        cor: '#2dcb8f',
+        texto: '<strong>Shoshana Zuboff, "Capitalismo de Vigilância"</strong> — obra diretamente pertinente ao tema. O conceito de "capitalismo de vigilância" é técnico, específico e adequado. Citar a instituição (Harvard) reforça a credibilidade da referência.'
+      },
+      {
+        label: 'Dado estatístico',
+        cor: '#f5a623',
+        texto: '<strong>IBGE (2022) — 57% dos brasileiros utilizam internet</strong>. Dado nacional, com fonte identificada e ano citado. Pertinente porque demonstra a vulnerabilidade do público brasileiro ao tema discutido. Não é dado genérico: está articulado ao argumento.'
+      },
+      {
+        label: 'Conclusão parcial',
+        cor: '#44d9e8',
+        texto: '<strong>"a assimetria de informação entre usuários e plataformas transforma-se em instrumento de dominação silenciosa"</strong> — fecha o parágrafo retomando a tese geral (manipulação) com nova formulação. O adjetivo "silenciosa" é escolha vocabular sofisticada.'
+      },
+      {
+        label: 'Coesão (C4)',
+        cor: '#a29bfe',
+        texto: 'Uso de "esse sistema" (pronome demonstrativo de retomada), "essa realidade" (retomada), "Assim" (conectivo consecutivo na conclusão parcial). Zero repetições desnecessárias de "plataformas" — substituído por "empresas" e "sistema".'
+      }
+    ]
+  },
+  {
+    tipo: '2º Desenvolvimento',
+    num: 3,
+    texto: `Além dos mecanismos econômicos, a ausência de regulação efetiva potencializa os efeitos da manipulação digital sobre os cidadãos. Embora o Brasil conte com a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018), a fiscalização da Autoridade Nacional de Proteção de Dados (ANPD) ainda é incipiente, uma vez que o órgão carece de recursos humanos e financeiros suficientes para monitorar empresas de grande porte. Esse vácuo regulatório favorece práticas como o uso de algoritmos para personalizar conteúdos políticos, fenômeno documentado pela pesquisadora Eli Pariser como "filtro-bolha": o usuário passa a ver apenas informações que confirmam suas crenças preexistentes, o que compromete a formação de uma opinião pública plural e informada. Desse modo, a fragilidade institucional brasileira converte a internet em espaço de fragmentação democrática.`,
+    detalhes: [
+      {
+        label: 'Conectivo de abertura',
+        cor: '#7b6cff',
+        texto: '<strong>"Além dos mecanismos econômicos"</strong> — conectivo aditivo que retoma o argumento do parágrafo anterior ("mecanismos econômicos") e anuncia uma dimensão complementar. Cria coesão entre os parágrafos de desenvolvimento e demonstra organização argumentativa superior.'
+      },
+      {
+        label: 'Tópico frasal',
+        cor: '#fd79a8',
+        texto: '<strong>"a ausência de regulação efetiva potencializa os efeitos da manipulação digital"</strong> — tese do parágrafo anunciada na primeira frase. Liga-se à tese geral da introdução ("ausência de regulação efetiva" é exatamente o segundo ponto anunciado na tese).'
+      },
+      {
+        label: 'Legislação citada',
+        cor: '#2dcb8f',
+        texto: '<strong>LGPD — Lei 13.709/2018 + ANPD</strong> — uso de legislação real, com número correto. A crítica não é à lei em si, mas à sua execução precária — argumento sofisticado que demonstra conhecimento jurídico e evita simplismos. Competência 2 nota máxima.'
+      },
+      {
+        label: 'Conectivo causal interno',
+        cor: '#f5a623',
+        texto: '<strong>"uma vez que"</strong> — conjunção causal formal que explicita o motivo da fiscalização precária (falta de recursos). É diferente de simplesmente afirmar — o candidato explica por que a ANPD é fraca, o que demonstra profundidade argumentativa.'
+      },
+      {
+        label: 'Segundo repertório do parágrafo',
+        cor: '#44d9e8',
+        texto: '<strong>Eli Pariser, "filtro-bolha"</strong> — conceito da ciência da comunicação digital, direto ao tema. Dois repertórios em um parágrafo: legislação + conceito teórico. Isso é o que separa as notas 920 das 1000.'
+      },
+      {
+        label: 'Conclusão parcial',
+        cor: '#a29bfe',
+        texto: '<strong>"Desse modo"</strong> (conectivo consecutivo) + "converte a internet em espaço de fragmentação democrática" — metáfora ("fragmentação democrática") é recurso estilístico elegante na conclusão. Retoma a tese geral ao mesmo tempo que aprofunda a consequência.'
+      },
+      {
+        label: 'Coesão (C4)',
+        cor: '#fd79a8',
+        texto: '"Embora" (concessiva + subjuntivo), "uma vez que" (causal), "Desse modo" (consecutiva). Três categorias distintas de conectivos em um único parágrafo — variedade que evidencia domínio dos mecanismos de coesão.'
+      }
+    ]
+  },
+  {
+    tipo: 'Conclusão e Proposta de Intervenção',
+    num: 4,
+    texto: `Depreende-se, portanto, que a manipulação do comportamento do usuário pela exploração de dados pessoais constitui fenômeno que combina a lógica predatória do capitalismo de vigilância com a fragilidade regulatória do Estado brasileiro. Para enfrentar essa realidade, o <span class="hl hl-ag">Congresso Nacional</span> deve <span class="hl hl-ac">fortalecer a Autoridade Nacional de Proteção de Dados, ampliando seu orçamento e autonomia operacional</span>, <span class="hl hl-me">por meio de legislação específica que garanta dotação orçamentária mínima e independência funcional em relação ao Poder Executivo</span>, <span class="hl hl-ef">a fim de garantir fiscalização efetiva das plataformas digitais que operam no território nacional</span> — <span class="hl hl-dt">medida que, ao equiparar o modelo regulatório brasileiro ao do Regulamento Geral de Proteção de Dados da União Europeia (GDPR), asseguraria ao cidadão brasileiro os mesmos direitos digitais já conquistados por cidadãos europeus, restituindo à internet seu potencial democrático e emancipatório</span>.`,
+    detalhes: [
+      {
+        label: 'Conectivo de abertura',
+        cor: '#7b6cff',
+        texto: '<strong>"Depreende-se, portanto"</strong> — conectivo conclusivo de alto nível formal. "Depreende-se" indica que a conclusão é inferida dos argumentos anteriores (não é opinião arbitrária). "Portanto" reforça a conclusão lógica. Uso combinado é sofisticado e evita o clichê "Diante do exposto".'
+      },
+      {
+        label: 'Retomada da tese',
+        cor: '#fd79a8',
+        texto: '<strong>"a manipulação do comportamento do usuário pela exploração de dados pessoais constitui fenômeno que combina..."</strong> — retoma a tese central sem repetição literal. Usa "constitui fenômeno que combina" em lugar de "é um problema", elevando o registro. Sintetiza os dois argumentos ("capitalismo de vigilância" + "fragilidade regulatória").'
+      },
+      {
+        label: 'Agente da proposta',
+        cor: '#7b6cff',
+        texto: '<span class="hl hl-ag" style="font-size:12px">Congresso Nacional</span> — agente específico, com poder constitucional para criar leis e ampliar orçamento de órgãos. Não é "o governo" (vago) nem "a sociedade" (sem poder executivo real). Escolha precisa e viável.'
+      },
+      {
+        label: 'Ação da proposta',
+        cor: '#2dcb8f',
+        texto: '<span class="hl hl-ac" style="font-size:12px">fortalecer a ANPD, ampliando orçamento e autonomia</span> — ação concreta, com verbo no infinitivo e especificação imediata. Liga-se diretamente à falha identificada no 2º parágrafo de desenvolvimento (ANPD fraca por falta de recursos). Coerência narrativa perfeita.'
+      },
+      {
+        label: 'Modo / Meio',
+        cor: '#f5a623',
+        texto: '<span class="hl hl-me" style="font-size:12px">por meio de legislação específica que garanta dotação orçamentária mínima e independência funcional</span> — especifica como exatamente o Congresso fará isso: criando lei com dotação obrigatória. Detalhe técnico que demonstra conhecimento do processo legislativo.'
+      },
+      {
+        label: 'Efeito',
+        cor: '#ff6b6b',
+        texto: '<span class="hl hl-ef" style="font-size:12px">a fim de garantir fiscalização efetiva das plataformas digitais</span> — efeito diretamente ligado ao problema central do tema. Não é efeito genérico ("melhorar a vida das pessoas") — é específico e verificável.'
+      },
+      {
+        label: 'Detalhamento',
+        cor: '#44d9e8',
+        texto: '<span class="hl hl-dt" style="font-size:12px">ao equiparar ao GDPR europeu</span> — detalhamento que cita legislação internacional real (GDPR — Regulamento Geral de Proteção de Dados da UE), compara o Brasil com modelo bem-sucedido e articula o efeito de longo prazo ("restituindo à internet seu potencial democrático"). Três camadas de profundidade em uma única oração relativa.'
+      },
+      {
+        label: 'Pontuação final — competências',
+        cor: '#fd79a8',
+        texto: '<strong>C1: 200</strong> — sem desvios. <strong>C2: 200</strong> — repertório diversificado (Harari, Zuboff, Pariser, LGPD, GDPR). <strong>C3: 200</strong> — tese → 2 args → conclusão progressiva. <strong>C4: 200</strong> — conectivos variados, pronomes, sinonímia. <strong>C5: 200</strong> — proposta com 5 elementos. <strong>Total: 1000/1000.</strong>'
+      }
+    ]
+  }
+];
+
+let rvStep = 0; // 0 = tela inicial, 1..4 = parágrafos, 5 = tela final
+let rvShownDetails = false;
+
+function renderRedacaoViva() {
+  const cont = document.getElementById('rv-body');
+  if (!cont) return;
+
+  if (rvStep === 0) {
+    cont.innerHTML = `
+      <div class="card" style="margin-bottom:14px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--text3);text-transform:uppercase;margin-bottom:6px">Tema da redação</div>
+        <div style="font-size:17px;font-weight:500;color:var(--text);line-height:1.4;margin-bottom:16px">${RV_TEMA}</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px">
+          ${['Introdução','1º Desenv.','2º Desenv.','Conclusão'].map((t,i)=>`
+            <div style="background:var(--bg3);border-radius:var(--r);padding:10px;text-align:center">
+              <div style="width:24px;height:24px;border-radius:50%;background:rgba(253,121,168,.15);color:#fd79a8;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin:0 auto 6px">${i+1}</div>
+              <div style="font-size:11px;color:var(--text2)">${t}</div>
+            </div>
+          `).join('')}
+        </div>
+        <div style="background:rgba(253,121,168,.08);border:1px solid rgba(253,121,168,.25);border-radius:var(--r);padding:12px 14px;margin-bottom:16px">
+          <div style="font-size:12px;color:var(--text2);line-height:1.6">A cada parágrafo revelado, você poderá ver a análise completa: qual conectivo foi usado e por quê, qual é a tese do parágrafo, os repertórios utilizados, as técnicas de coesão e a avaliação por competência.</div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px">
+          <span class="hl hl-ag">Agente</span>
+          <span class="hl hl-ac">Ação</span>
+          <span class="hl hl-me">Modo/Meio</span>
+          <span class="hl hl-ef">Efeito</span>
+          <span class="hl hl-dt">Detalhamento</span>
+          <span style="font-size:11px;color:var(--text3);padding:3px 0">← proposta de intervenção destacada no último parágrafo</span>
+        </div>
+        <button class="rv-btn-next" style="background:#fd79a8;color:#1a0010;width:100%" onclick="rvStep=1;rvShownDetails=false;renderRedacaoViva()">Começar — ver 1º parágrafo</button>
+      </div>
+    `;
+    return;
+  }
+
+  if (rvStep > RV_PARAGRAFOS.length) {
+    // Final screen
+    cont.innerHTML = `
+      <div class="card" style="margin-bottom:14px;border:1px solid rgba(253,121,168,.3)">
+        <div style="text-align:center;padding:10px 0 16px">
+          <div style="font-size:28px;font-weight:700;color:#fd79a8;margin-bottom:4px">1000 / 1000</div>
+          <div style="font-size:13px;color:var(--text2)">Redação completa — nota máxima</div>
+        </div>
+        <div class="rv-score-final">
+          ${['C1','C2','C3','C4','C5'].map(c=>`
+            <div class="rv-score-cell">
+              <div class="sc-n">${c}</div>
+              <div class="sc-v" style="color:#fd79a8">200</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:14px">
+        <div class="section-label">Redação completa</div>
+        ${RV_PARAGRAFOS.map(p=>`
+          <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)">
+            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#fd79a8;text-transform:uppercase;margin-bottom:8px">${p.tipo}</div>
+            <div class="rv-texto">${p.texto}</div>
+          </div>
+        `).join('')}
+        <div style="margin-top:8px">
+          <button class="rv-btn-restart" onclick="rvStep=0;rvShownDetails=false;renderRedacaoViva()">Reler do início</button>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  const par = RV_PARAGRAFOS[rvStep - 1];
+
+  // Progress pips
+  const pips = RV_PARAGRAFOS.map((_,i)=>`
+    <div class="rv-pip ${i < rvStep-1 ? 'done' : i === rvStep-1 ? 'current' : ''}" style="--rv-cor:${RV_COR}"></div>
+  `).join('');
+
+  const detailsHtml = rvShownDetails ? `
+    <div class="rv-details">
+      ${par.detalhes.map(d=>`
+        <div class="rv-detail-block">
+          <div class="rv-detail-label" style="color:${d.cor}">${d.label}</div>
+          <div class="rv-detail-text">${d.texto}</div>
+        </div>
+      `).join('')}
+    </div>
+  ` : '';
+
+  const isLast = rvStep === RV_PARAGRAFOS.length;
+  const btnLabel = !rvShownDetails
+    ? 'Ver análise deste parágrafo'
+    : isLast ? 'Ver resultado final' : `Avançar para o ${rvStep+1}º parágrafo`;
+  const btnAction = !rvShownDetails
+    ? `rvShownDetails=true;renderRedacaoViva()`
+    : isLast ? `rvStep=${rvStep+1};rvShownDetails=false;renderRedacaoViva()` : `rvStep=${rvStep+1};rvShownDetails=false;renderRedacaoViva()`;
+
+  cont.innerHTML = `
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+      <div class="rv-progress" style="flex:1;margin-bottom:0">${pips}</div>
+      <div style="font-size:11px;color:var(--text3);white-space:nowrap">${rvStep} / ${RV_PARAGRAFOS.length}</div>
+    </div>
+
+    <div class="rv-card">
+      <div class="rv-header">
+        <div class="rv-num" style="background:rgba(253,121,168,.15);color:#fd79a8">${par.num}</div>
+        <div>
+          <div class="rv-tipo" style="color:#fd79a8">${par.tipo}</div>
+          <div style="font-size:12px;color:var(--text2)">Tema: ${RV_TEMA}</div>
+        </div>
+      </div>
+      <div class="rv-texto-wrap">
+        <div class="rv-texto">${par.texto}</div>
+      </div>
+      ${detailsHtml}
+    </div>
+
+    <div class="rv-btn-row">
+      <button class="rv-btn-next" style="background:${rvShownDetails?'#fd79a8':'transparent'};color:${rvShownDetails?'#1a0010':'#fd79a8'};border:1px solid rgba(253,121,168,.5)" onclick="${btnAction}">${btnLabel}</button>
+      <button class="rv-btn-restart" onclick="rvStep=0;rvShownDetails=false;renderRedacaoViva()">Reiniciar</button>
+    </div>
+  `;
+}
+
+// ── NAV CLICK ────────────────────────────────────────────────────────────
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const sec = item.dataset.sec;
+    const ci = item.dataset.ci;
+    nav(sec, ci !== undefined ? parseInt(ci) : undefined);
+  });
+});
+
+// ── INIT ─────────────────────────────────────────────────────────────────
+renderEstrutura();
+renderZeros();
+renderConectivos();
+renderRepertorio();
+renderErros();
+renderRedacao();
+renderChecklist();
+nav('visao-geral');
+</script>
+</body>
+</html>
